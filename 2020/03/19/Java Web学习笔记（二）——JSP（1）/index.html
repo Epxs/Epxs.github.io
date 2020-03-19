@@ -6,15 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020 | Epxs的个人博客</title>
+  <title>Java Web学习笔记（二）——JSP（1） | Epxs的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Epxs的个人博客">
-<meta property="og:url" content="http://yoursite.com/archives/2020/index.html">
+  <meta name="description" content="一 什么是JSPJSP全称Java Server Pages，是一种动态网页开发技术。JSP的本质是一种Servlet，主要用于实现Java web应用程序的用户界面部分，并将最终的界⾯呈现给⽤户。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java Web学习笔记（二）——JSP（1）">
+<meta property="og:url" content="http://yoursite.com/2020/03/19/Java%20Web%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94JSP%EF%BC%881%EF%BC%89/index.html">
 <meta property="og:site_name" content="Epxs的个人博客">
+<meta property="og:description" content="一 什么是JSPJSP全称Java Server Pages，是一种动态网页开发技术。JSP的本质是一种Servlet，主要用于实现Java web应用程序的用户界面部分，并将最终的界⾯呈现给⽤户。">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200319154737945.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2020031821095015.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200318211619145.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200318213619108.png">
+<meta property="article:published_time" content="2020-03-19T07:50:27.097Z">
+<meta property="article:modified_time" content="2020-03-19T08:37:29.346Z">
 <meta property="article:author" content="Epxs">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200319154737945.png">
   
     <link rel="alternative" href="/atom.xml" title="Epxs的个人博客" type="application/atom+xml">
   
@@ -149,76 +158,217 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-Java Web学习笔记（二）——JSP（1）" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header"> 
+        
   
+    <h1 class="article-title" itemprop="name">
+      Java Web学习笔记（二）——JSP（1）
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/19/Java%20Web%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94JSP%EF%BC%881%EF%BC%89/" class="archive-article-date">
+
+        
+        <a href="/2020/03/19/Java%20Web%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94JSP%EF%BC%881%EF%BC%89/" class="archive-article-date">
   	<time datetime="2020-03-19T07:50:27.097Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-19</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/19/Java%20Web%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94JSP%EF%BC%881%EF%BC%89/">Java Web学习笔记（二）——JSP（1）</a>
-    </h1>
-  
+        
+      </header>
+     
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="一-什么是JSP"><a href="#一-什么是JSP" class="headerlink" title="一 什么是JSP"></a>一 什么是JSP</h1><p>JSP全称Java Server Pages，是一种动态网页开发技术。JSP的本质是一种Servlet，主要用于实现Java web应用程序的用户界面部分，并将最终的界⾯呈现给⽤户。<a id="more"></a>单纯的从代码的角度来看，JSP文件实际上是一个潜入了Java代码的HTML文件，是一个HTML+CSS+JS+Java的混合文件。</p>
+<h1 id="二-JSP工作原理"><a href="#二-JSP工作原理" class="headerlink" title="二 JSP工作原理"></a>二 JSP工作原理</h1><p>JSP处理网页的步骤可用下图来表示：</p>
+<p><img src="https://img-blog.csdnimg.cn/20200319154737945.png" alt="在这里插入图片描述"></p>
+<p>以下步骤表明了 Web 服务器是如何使用JSP来创建网页的：</p>
+<ul>
+<li><p>就像其他普通的网页一样，您的浏览器发送一个 HTTP 请求给服务器。</p>
+</li>
+<li><p>Web 服务器识别出这是一个对 JSP 网页的请求，并且将该请求传递给 JSP 引擎。通过使用 URL或者 .jsp 文件来完成。</p>
+</li>
+<li><p>JSP 引擎从磁盘中载入 JSP 文件，然后将它们转化为 Servlet。这种转化只是简单地将所有模板文本改用 println() 语句，并且将所有的 JSP 元素转化成 Java 代码。</p>
+</li>
+<li><p>JSP 引擎将 Servlet 编译成可执行类，并且将原始请求传递给 Servlet 引擎。</p>
+</li>
+<li><p>Web 服务器的某组件将会调用 Servlet 引擎，然后载入并执行 Servlet 类。在执行过程中，Servlet 产生 HTML 格式的输出并将其内嵌于 HTTP response 中上交给 Web 服务器。</p>
+</li>
+<li><p>Web 服务器以静态 HTML 网页的形式将 HTTP response 返回到您的浏览器中。</p>
+</li>
+<li><p>最终，Web 浏览器处理 HTTP response 中动态产生的HTML网页，就好像在处理静态网页一样。</p>
+</li>
+</ul>
+<h1 id="三-Java嵌入的三种方式"><a href="#三-Java嵌入的三种方式" class="headerlink" title="三 Java嵌入的三种方式"></a>三 Java嵌入的三种方式</h1><p>1、JSP脚本：可以包含任意量的Java语句、变量、方法或表达式，用于执行Java的逻辑代码。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;%</span><br><span class="line">  Java代码</span><br><span class="line">%&gt;</span><br></pre></td></tr></table></figure>
 
-        <div class="article-info info-on-right">
-          
-          
+<p>2、JSP声明：可以声明一个或多个变量、方法，供后面的Java代码使用。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;%!</span><br><span class="line">	声明Java方法等</span><br><span class="line">%&gt;</span><br></pre></td></tr></table></figure>
 
+<p>3、JSP表达式：把 Java 对象直接输出到 HTML ⻚⾯中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%&#x3D;  Java变量   %&gt;</span><br></pre></td></tr></table></figure>
+
+<p>例如，在index.jsp文件中声明了一个hello()方法，并用str接受了hello()方法的返回值，最后输出到HTML页面中。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Hello<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span></span><br><span class="line">      Hello World!</span><br><span class="line">    <span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">%!</span></span></span><br><span class="line"><span class="tag">      <span class="attr">public</span> <span class="attr">String</span> <span class="attr">hello</span>()&#123;</span></span><br><span class="line"><span class="tag">        <span class="attr">return</span> "<span class="attr">Hello</span> <span class="attr">JSP</span>!";</span></span><br><span class="line"><span class="tag">      &#125;</span></span><br><span class="line"><span class="tag">    %&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">%</span></span></span><br><span class="line"><span class="tag">      <span class="attr">String</span> <span class="attr">str</span>=<span class="string">hello();</span></span></span><br><span class="line"><span class="tag">    %&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">%=str%</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>启动Tomcat服务器，在浏览器中访问，浏览器得到如下界面：</p>
+<p><img src="https://img-blog.csdnimg.cn/2020031821095015.png" alt="在这里插入图片描述"></p>
+<p>查看该页面源代码：</p>
+<p><img src="https://img-blog.csdnimg.cn/20200318211619145.png" alt="在这里插入图片描述"><br>再如，在jsp文件里定义一个List集合，集合中放的是User类的对象，并用一个表格输出到浏览器页面中。</p>
+<p>User类：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.epxs.test;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> Integer age;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Integer <span class="title">getAge</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAge</span><span class="params">(Integer age)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">User</span><span class="params">(String name, Integer age)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">        <span class="keyword">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在index.jsp文件中，定义集合，并以表格形式输出。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Hello<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span></span><br><span class="line">      Hello World!</span><br><span class="line">    <span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">%</span></span></span><br><span class="line">      List&lt;User&gt; users=new ArrayList&lt;&gt;();</span><br><span class="line">      users.add(new User("Tom",18));</span><br><span class="line">      users.add(new User("Jack",22));</span><br><span class="line">      users.add(new User("Lucy",19));</span><br><span class="line">    %&gt;</span><br><span class="line">    <span class="tag">&lt;<span class="name">table</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">th</span>&gt;</span>姓名<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">th</span>&gt;</span>年龄<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">%</span></span></span><br><span class="line">        for(int i=0;i&lt;users.size();i++)&#123;</span><br><span class="line">      %&gt;</span><br><span class="line">          <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">%=users.get(i).getName()%</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">%=users.get(i).getAge()%</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">%</span></span></span><br><span class="line"><span class="tag">        &#125;</span></span><br><span class="line"><span class="tag">      %&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>访问index.jsp，浏览输出：</p>
+<p><img src="https://img-blog.csdnimg.cn/20200318213619108.png" alt="在这里插入图片描述"></p>
+<h1 id="四-JSP内置对象"><a href="#四-JSP内置对象" class="headerlink" title="四 JSP内置对象"></a>四 JSP内置对象</h1><p>JSP内置对象是指JSP容器为每个页面提供的Java对象，开发者可以直接使用它们而不用显式声明。JSP共有九大内置对象，分别为：</p>
+<p>1、request：HttpServletRequest 类的实例，表示一次请求。</p>
+<p>2、response：HttpServletResponse类的实例，表示一次响应。</p>
+<p>3、out：JspWriter 类的实例，用来写入内容，向浏览器输出数据。</p>
+<p>4、pageContext：PageContext 类的实例，用来代表整个JSP页面。</p>
+<p>5、session：表示⼀次会话，保存⽤户信息,HttpSession的实例。</p>
+<p>6、application：ServletContext的实例，表示当前 Web 应⽤，全局对象，保存所有⽤户共享信息。</p>
+<p>7、config：当前 JSP 对应的 Servlet 的 ServletConfig 对象，获取当前 Servlet 的信息，允许开发者访问Servlet或者JSP引擎的初始化参数。</p>
+<p>8、 page：当前 JSP 对应的 Servlet 对象， page 对象就是this对象的同义词。</p>
+<p>9、 exception：Exception类的对象，代表发生错误的JSP页面中对应的异常对象。</p>
+<h1 id="五-HTTP状态码"><a href="#五-HTTP状态码" class="headerlink" title="五 HTTP状态码"></a>五 HTTP状态码</h1><p>当浏览者访问一个网页时，浏览者的浏览器会向网页所在服务器发出请求。当浏览器接收并显示网页前，此网页所在的服务器会返回一个包含HTTP状态码的信息头（server header）用以响应浏览器的请求。常见的状态码及其表示的信息：</p>
+<ul>
+<li>200：OK，表示正常，请求成功。</li>
+<li>400：表示客户端请求的语法错误，服务器无法匹配。</li>
+<li>404：Not Found，服务器无法根据客户端的请求找到资源（网页）。</li>
+<li>500：服务器内部错误，无法完成请求，或程序抛出了异常。</li>
+</ul>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/03/19/Java%20Web%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94JSP%EF%BC%881%EF%BC%89/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/17/Java%20Web%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94Servlet/" class="archive-article-date">
-  	<time datetime="2020-03-17T14:48:42.629Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-17</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/03/17/Java%20Web%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94Servlet/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Java Web学习笔记（一）——Servlet</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/17/Java%20Web%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94Servlet/">Java Web学习笔记（一）——Servlet</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -241,8 +391,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
