@@ -23,9 +23,11 @@
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20200321191513556.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20200321193156285.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20200321193923217.png">
-<meta property="article:published_time" content="2020-03-21T11:58:52.439Z">
-<meta property="article:modified_time" content="2020-03-21T12:04:57.037Z">
+<meta property="article:published_time" content="2020-03-21T02:05:10.000Z">
+<meta property="article:modified_time" content="2020-03-23T07:39:53.631Z">
 <meta property="article:author" content="Epxs">
+<meta property="article:tag" content="Session">
+<meta property="article:tag" content="Cookie">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200321170123935.png">
   
@@ -75,7 +77,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 3
+			总文章数 5
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -175,7 +177,7 @@
 
         
         <a href="/2020/03/21/Java%20Web%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94Session%E5%92%8CCookie/" class="archive-article-date">
-  	<time datetime="2020-03-21T11:58:52.439Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-21</time>
+  	<time datetime="2020-03-21T02:05:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-21</time>
 </a>
         
       </header>
@@ -183,14 +185,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="一-会话"><a href="#一-会话" class="headerlink" title="一 会话"></a>一 会话</h1><p>会话技术：HTTP是<strong>无状态协议</strong>，这意味着每次客户端发出请求时，服务器不会记录下先前客户端请求的任何信息，即服务器⽆法识别每⼀次 HTTP 请求的出处（不知道来⾃于哪个终端）。<a id="more"></a>所以必须要有⼀种技术来让服务器知道请求来⾃哪里，这就是<strong>会话技术</strong>。以电商为例，当A要购买一件商品，向服务器发起“购买”请求，要求服务器将商品加到自己的购物车，因为服务器无法得知该请求的出处，所以就可能将商品加到B（或C或D…）的购物车里。</p>
+        <h2 id="一-会话"><a href="#一-会话" class="headerlink" title="一 会话"></a>一 会话</h2><p>会话技术：HTTP是<strong>无状态协议</strong>，这意味着每次客户端发出请求时，服务器不会记录下先前客户端请求的任何信息，即服务器⽆法识别每⼀次 HTTP 请求的出处（不知道来⾃于哪个终端）。<a id="more"></a>所以必须要有⼀种技术来让服务器知道请求来⾃哪里，这就是<strong>会话技术</strong>。以电商为例，当A要购买一件商品，向服务器发起“购买”请求，要求服务器将商品加到自己的购物车，因为服务器无法得知该请求的出处，所以就可能将商品加到B（或C或D…）的购物车里。</p>
 <p>会话：会话就是客户端和服务器之间发生一系列请求的过程，具体到实际情况中，可将会话看成浏览器从打开到关闭的一个过程。</p>
 <p>会话的实现方式：</p>
 <ul>
 <li>session：服务器会话技术</li>
 <li>cookie：客户端会话技术</li>
 </ul>
-<h1 id="二-Session"><a href="#二-Session" class="headerlink" title="二 Session"></a>二 Session</h1><p>session作为JSP九大内置对象之一，是 HttpSession 类的实例。用来跟踪在各个客户端请求间的会话。可在一次会话的多次请求中共享数据，数据保存在session对象中。属于同一次会话的请求都有一个相同的标识符：<strong>sessionID</strong>。</p>
+<h2 id="二-Session"><a href="#二-Session" class="headerlink" title="二 Session"></a>二 Session</h2><p>session作为JSP九大内置对象之一，是 HttpSession 类的实例。用来跟踪在各个客户端请求间的会话。可在一次会话的多次请求中共享数据，数据保存在session对象中。属于同一次会话的请求都有一个相同的标识符：<strong>sessionID</strong>。</p>
 <p>session常用方法：</p>
 <p>1、String getId()：获取sessionID。</p>
 <p>示例：获取当前会话的sessionID</p>
@@ -241,7 +243,7 @@
 
 <p>测试结果：</p>
 <p><img src="https://img-blog.csdnimg.cn/20200321191555275.png" alt="在这里插入图片描述"><br>输入正确，则跳转<br><img src="https://img-blog.csdnimg.cn/20200321191513556.png" alt="在这里插入图片描述"></p>
-<h1 id="三-Cookie"><a href="#三-Cookie" class="headerlink" title="三 Cookie"></a>三 Cookie</h1><p>cookie，客户端会话技术，服务端在 HTTP 响应中附带传给浏览器的⼀个⼩⽂本⽂件，⼀旦浏览器保存了某个 Cookie，在之后的请求和响应过程中，会将此 Cookie 来回传递，这样就可以通过 Cookie 这个载体完成客户端和服务端的数据交互。</p>
+<h2 id="三-Cookie"><a href="#三-Cookie" class="headerlink" title="三 Cookie"></a>三 Cookie</h2><p>cookie，客户端会话技术，服务端在 HTTP 响应中附带传给浏览器的⼀个⼩⽂本⽂件，⼀旦浏览器保存了某个 Cookie，在之后的请求和响应过程中，会将此 Cookie 来回传递，这样就可以通过 Cookie 这个载体完成客户端和服务端的数据交互。</p>
 <ul>
 <li>创建cookie</li>
 </ul>
@@ -267,7 +269,7 @@
 <li><p>String getValue() 获取 Cookie 的 value。</p>
 </li>
 </ul>
-<h1 id="四-session和cookie的区别"><a href="#四-session和cookie的区别" class="headerlink" title="四 session和cookie的区别"></a>四 session和cookie的区别</h1><ul>
+<h2 id="四-session和cookie的区别"><a href="#四-session和cookie的区别" class="headerlink" title="四 session和cookie的区别"></a>四 session和cookie的区别</h2><ul>
 <li><p>seesion保存在服务器端，保存的数据是Object类型，并随会话结束（浏览器关闭）而销毁，数据相对安全，一般用来保存重要信息。</p>
 </li>
 <li><p>cookie保存在客户端，保存的数据类型是Srtring类型，可以长期保存在客户端，数据相对不安全。</p>
@@ -304,6 +306,21 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Session</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Cookie</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -368,9 +385,18 @@
   
 <nav id="article-nav">
   
+    <a href="/2020/03/23/Java%20Web%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94JSP%E4%BD%9C%E7%94%A8%E5%9F%9F/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Java Web学习笔记（四）——JSP作用域
+        
+      </div>
+    </a>
   
-    <a href="/2020/03/19/Java%20Web%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94JSP/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Java Web学习笔记（二）——JSP</div>
+  
+    <a href="/2020/03/20/Java%20Web%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94JSP/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Java Web学习笔记（三）——JSP</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -494,6 +520,22 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Session</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Cookie</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">JSP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Servlet</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
