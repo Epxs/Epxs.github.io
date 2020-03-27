@@ -8,12 +8,12 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Java Web学习笔记（一）——Servlet | Epxs的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一 什么是ServletServlet 是运行在 Web 服务器或应用服务器上的程序，它是作为来自 Web 浏览器或其他 HTTP 客户端的请求和 HTTP 服务器上的数据库或应用程序之间的中间层。">
+  <meta name="description" content="什么是ServletServlet 是运行在 Web 服务器或应用服务器上的程序，它是作为来自 Web 浏览器或其他 HTTP 客户端的请求和 HTTP 服务器上的数据库或应用程序之间的中间层。简而言之，Servlet是运行在Web服务器端（Tomcat）负责与客户端进行通信的一组组件。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java Web学习笔记（一）——Servlet">
 <meta property="og:url" content="http://yoursite.com/2020/03/18/Java%20Web%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94Servlet/index.html">
 <meta property="og:site_name" content="Epxs的个人博客">
-<meta property="og:description" content="一 什么是ServletServlet 是运行在 Web 服务器或应用服务器上的程序，它是作为来自 Web 浏览器或其他 HTTP 客户端的请求和 HTTP 服务器上的数据库或应用程序之间的中间层。">
+<meta property="og:description" content="什么是ServletServlet 是运行在 Web 服务器或应用服务器上的程序，它是作为来自 Web 浏览器或其他 HTTP 客户端的请求和 HTTP 服务器上的数据库或应用程序之间的中间层。简而言之，Servlet是运行在Web服务器端（Tomcat）负责与客户端进行通信的一组组件。">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/2020031720081564.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20200317203539281.png">
@@ -28,7 +28,7 @@
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20200317224507648.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20200317224537100.png">
 <meta property="article:published_time" content="2020-03-18T12:15:30.000Z">
-<meta property="article:modified_time" content="2020-03-23T07:32:32.892Z">
+<meta property="article:modified_time" content="2020-03-27T11:33:25.626Z">
 <meta property="article:author" content="Epxs">
 <meta property="article:tag" content="Servlet">
 <meta name="twitter:card" content="summary">
@@ -80,7 +80,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 5
+			总文章数 6
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -188,17 +188,18 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="一-什么是Servlet"><a href="#一-什么是Servlet" class="headerlink" title="一 什么是Servlet"></a>一 什么是Servlet</h2><p>Servlet 是运行在 Web 服务器或应用服务器上的程序，它是作为来自 Web 浏览器或其他 HTTP 客户端的请求和 HTTP 服务器上的数据库或应用程序之间的中间层。<a id="more"></a><br>简而言之，Servlet是运行在Web服务器端（Tomcat）负责与客户端进行通信的一组组件。</p>
-<h2 id="二-Servlet的功能"><a href="#二-Servlet的功能" class="headerlink" title="二 Servlet的功能"></a>二 Servlet的功能</h2><p>Servlet主要有以下几点功能：</p>
+        <h2 id="什么是Servlet"><a href="#什么是Servlet" class="headerlink" title="什么是Servlet"></a>什么是Servlet</h2><p>Servlet 是运行在 Web 服务器或应用服务器上的程序，它是作为来自 Web 浏览器或其他 HTTP 客户端的请求和 HTTP 服务器上的数据库或应用程序之间的中间层。简而言之，Servlet是运行在Web服务器端（Tomcat）负责与客户端进行通信的一组组件。</p>
+<a id="more"></a>
+<h2 id="Servlet的功能"><a href="#Servlet的功能" class="headerlink" title="Servlet的功能"></a>Servlet的功能</h2><p>Servlet主要有以下几点功能：</p>
 <ul>
 <li>接受客户端发来的请求数据</li>
 <li>对请求进行处理，并可以与数据库进行通信</li>
 <li>完成响应，返回基于客户端请求的动态HTML页面</li>
 </ul>
-<h2 id="三-如何使用Servlet"><a href="#三-如何使用Servlet" class="headerlink" title="三 如何使用Servlet"></a>三 如何使用Servlet</h2><p>Servlet的本质其实是一组接口，在开发过程中，如果要使用Servlet，只需要自定义一个类，并将该类实现Servlet接口即可。下面定义了一个ServletTest类。</p>
+<h2 id="如何使用Servlet"><a href="#如何使用Servlet" class="headerlink" title="如何使用Servlet"></a>如何使用Servlet</h2><p>Servlet的本质其实是一组接口，在开发过程中，如果要使用Servlet，只需要自定义一个类，并将该类实现Servlet接口即可。下面定义了一个ServletTest类。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ServletTest</span> <span class="keyword">implements</span> <span class="title">Servlet</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">(ServletConfig servletConfig)</span> <span class="keyword">throws</span> ServletException </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> ServletConfig <span class="title">getServletConfig</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">service</span><span class="params">(ServletRequest servletRequest, ServletResponse servletResponse)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getServletInfo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">destroy</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="四-访问ServletTest"><a href="#四-访问ServletTest" class="headerlink" title="四 访问ServletTest"></a>四 访问ServletTest</h2><p><strong><em>1、配置映射</em></strong></p>
+<h2 id="访问ServletTest"><a href="#访问ServletTest" class="headerlink" title="访问ServletTest"></a>访问ServletTest</h2><p><strong><em>1、配置映射</em></strong></p>
 <p>由于浏览器无法直接访问Servlet ，要想让浏览器访问到Servlet文件，必须通过映射，有下面两种方法：</p>
 <ul>
 <li>在Web目录下的web.xml文件中配置映射</li>
@@ -221,7 +222,7 @@
 <p><img src="https://img-blog.csdnimg.cn/20200317203539281.png" alt="在这里插入图片描述"></p>
 <p>测试结果：</p>
 <p><img src="https://img-blog.csdnimg.cn/20200317203617779.png" alt="在这里插入图片描述"></p>
-<h2 id="五-Servlet生命周期"><a href="#五-Servlet生命周期" class="headerlink" title="五 Servlet生命周期"></a>五 Servlet生命周期</h2><p>Servlet 生命周期可被定义为从创建直到毁灭的整个过程。 遵循以下过程：</p>
+<h2 id="Servlet生命周期"><a href="#Servlet生命周期" class="headerlink" title="Servlet生命周期"></a>Servlet生命周期</h2><p>Servlet 生命周期可被定义为从创建直到毁灭的整个过程。 遵循以下过程：</p>
 <p>1、 当浏览器访问 Servlet 的时候， Tomcat 会查询当前 Servlet 的实例化对象是否存在，如果不存在，则通过反射机制动态创建对象，如果存在，直接执⾏第 3 步。</p>
 <p>2、通过 init() ⽅法完成初始化操作。</p>
 <p>3、 通过 service() ⽅法完成业务逻辑操作。</p>
@@ -231,7 +232,7 @@
 <p>2、init 只调⽤⼀次，初始化对象。</p>
 <p>3、 service 调⽤ N 次，执⾏业务⽅法。</p>
 <p>4、destory 只调⽤⼀次，销毁对象。</p>
-<h2 id="六-ServletConfig"><a href="#六-ServletConfig" class="headerlink" title="六 ServletConfig"></a>六 ServletConfig</h2><p>在init()方法和getServletConfig()方法中都涉及到了一个类——ServletConfig，该类是一个用于描述Servlet基本信息的接口。包含以下方法：</p>
+<h2 id="ServletConfig"><a href="#ServletConfig" class="headerlink" title="ServletConfig"></a>ServletConfig</h2><p>在init()方法和getServletConfig()方法中都涉及到了一个类——ServletConfig，该类是一个用于描述Servlet基本信息的接口。包含以下方法：</p>
 <p><img src="https://img-blog.csdnimg.cn/20200317210542204.png" alt="在这里插入图片描述"></p>
 <p>1 . getServletName()方法用于获取当前Servlet的全类名。</p>
 <p>示例：</p>
@@ -260,7 +261,7 @@
 
 <p>结果：</p>
 <p><img src="https://img-blog.csdnimg.cn/20200317215006698.png" alt="在这里插入图片描述"></p>
-<h2 id="七-ServletContext与ServletConfig"><a href="#七-ServletContext与ServletConfig" class="headerlink" title="七 ServletContext与ServletConfig"></a>七 ServletContext与ServletConfig</h2><p>ServletConfig 和 ServletContext 的区别：</p>
+<h2 id="ServletContext与ServletConfig"><a href="#ServletContext与ServletConfig" class="headerlink" title="ServletContext与ServletConfig"></a>ServletContext与ServletConfig</h2><p>ServletConfig 和 ServletContext 的区别：</p>
 <p>1、ServletConfig 作⽤于某个 Servlet 实例，每个 Servlet 都有对应的 ServletConfig， ServletContext 作⽤于整个 Web 应⽤，⼀个 Web 应⽤对应⼀个 ServletContext，多个 Servlet 实例对应⼀个ServletContext。</p>
 <p>2、⼀个是局部对象，⼀个是全局对象。</p>
 <p>示例：在web.xml文件中配置如下映射：</p>
@@ -271,7 +272,7 @@
 
 <p>测试结果：</p>
 <p><img src="https://img-blog.csdnimg.cn/2020031722071436.png" alt="在这里插入图片描述"></p>
-<h2 id="八-Servlet的层次结构"><a href="#八-Servlet的层次结构" class="headerlink" title="八 Servlet的层次结构"></a>八 Servlet的层次结构</h2><p>实现Servlet有三种方式：</p>
+<h2 id="Servlet的层次结构"><a href="#Servlet的层次结构" class="headerlink" title="Servlet的层次结构"></a>Servlet的层次结构</h2><p>实现Servlet有三种方式：</p>
 <ul>
 <li>实现javax.servlet.Servlet接口；</li>
 <li>继承javax.servlet.GenericServlet类；</li>
@@ -283,7 +284,7 @@
 <p>HttpServlet 继承 GenericServlet，根据请求类型进⾏分发处理， GET 进⼊ doGET ()⽅法， POST 进⼊doPOST ()⽅法。</p>
 <p>开发者⾃定义的 Servlet 类只需要继承 HttpServlet 即可，并重写doGET() 和 doPOST()。</p>
 <p>示例：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.epxs.test;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.servlet.ServletException;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.annotation.WebServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletResponse;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"></span><br><span class="line"><span class="meta">@WebServlet</span>(<span class="string">"/test2"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ServletTest2</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">        resp.getWriter().write(<span class="string">"GET"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doPost</span><span class="params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">        resp.getWriter().write(<span class="string">"POST"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.epxs.test;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.servlet.ServletException;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.annotation.WebServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletResponse;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"></span><br><span class="line"><span class="meta">@WebServlet</span>(<span class="string">"/test2"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ServletTest2</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">        <span class="comment">//向浏览器页面写入内容"GET"</span></span><br><span class="line">        resp.getWriter().write(<span class="string">"GET"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doPost</span><span class="params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">        <span class="comment">//像浏览器页面写入内容"POST"</span></span><br><span class="line">        resp.getWriter().write(<span class="string">"POST"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>在postman中分别测试GET请求和POST请求：</p>
 <p><img src="https://img-blog.csdnimg.cn/20200317224507648.png" alt="在这里插入图片描述"></p>
@@ -396,7 +397,7 @@
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Java Web学习笔记（三）——JSP
+          Java Web学习笔记（二）——JSP
         
       </div>
     </a>
@@ -524,6 +525,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Servlet</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Session</a>
               </li>
              
@@ -532,11 +537,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JSP</a>
+                <a href="javascript:void(0)" class="js-tag color1">EL表达式</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Servlet</a>
+                <a href="javascript:void(0)" class="js-tag color3">JSTL标签库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Filter</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">JSP</a>
               </li>
             
             <div class="clearfix"></div>

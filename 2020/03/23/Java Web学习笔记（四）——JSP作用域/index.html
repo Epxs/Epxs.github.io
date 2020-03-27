@@ -23,7 +23,7 @@
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20200323151528518.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20200323151446599.png">
 <meta property="article:published_time" content="2020-03-23T07:29:10.000Z">
-<meta property="article:modified_time" content="2020-03-23T07:35:35.151Z">
+<meta property="article:modified_time" content="2020-03-27T11:11:26.271Z">
 <meta property="article:author" content="Epxs">
 <meta property="article:tag" content="JSP">
 <meta name="twitter:card" content="summary">
@@ -75,7 +75,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 5
+			总文章数 6
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -219,7 +219,7 @@
 <h2 id="application作用域"><a href="#application作用域" class="headerlink" title="application作用域"></a>application作用域</h2><p>application作用域在所有的应用程序中都有效，也就是当服务器开始到服务器结束这段时间，application作用域中存储的数据都是有效的。同样可以通过setAttribute赋值和getAttribute取值。</p>
 <p>示例：利用application，可以统计网页的访问量。</p>
 <p>count.jsp</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">%@</span> <span class="attr">page</span> <span class="attr">contentType</span>=<span class="string">"text/html;charset=UTF-8"</span> <span class="attr">language</span>=<span class="string">"java"</span> %&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Title<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">%</span></span></span><br><span class="line"><span class="tag">        <span class="attr">Integer</span> <span class="attr">count</span> = <span class="string">(Integer)</span> <span class="attr">application.getAttribute</span>("<span class="attr">count</span>");</span></span><br><span class="line"><span class="tag">        <span class="attr">if</span>(<span class="attr">count</span>==<span class="string">null)&#123;</span></span></span><br><span class="line"><span class="tag">            <span class="attr">count</span> = <span class="string">1;</span></span></span><br><span class="line"><span class="tag">            <span class="attr">application.setAttribute</span>("<span class="attr">count</span>",<span class="attr">count</span>);</span></span><br><span class="line"><span class="tag">        &#125;<span class="attr">else</span> &#123;</span></span><br><span class="line"><span class="tag">            <span class="attr">count</span>++;</span></span><br><span class="line"><span class="tag">            <span class="attr">application.setAttribute</span>("<span class="attr">count</span>", <span class="attr">count</span>);</span></span><br><span class="line"><span class="tag">        &#125;</span></span><br><span class="line"><span class="tag">    %&gt;</span></span><br><span class="line">    您是当前第<span class="tag">&lt;<span class="name">%=count%</span>&gt;</span>位访客。</span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">%@</span> <span class="attr">page</span> <span class="attr">contentType</span>=<span class="string">"text/html;charset=UTF-8"</span> <span class="attr">language</span>=<span class="string">"java"</span> %&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Title<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">%</span></span></span><br><span class="line"><span class="tag">        <span class="attr">Integer</span> <span class="attr">count</span> = <span class="string">(Integer)</span> <span class="attr">application.getAttribute</span>("<span class="attr">count</span>");</span></span><br><span class="line"><span class="tag">        <span class="attr">if</span>(<span class="attr">count</span>==<span class="string">null)&#123;</span></span></span><br><span class="line"><span class="tag">            //当<span class="attr">count</span>值为空时，说明第一次访问，这时将<span class="attr">count</span>赋值为<span class="attr">1</span>，并存入<span class="attr">application</span>域</span></span><br><span class="line"><span class="tag">            <span class="attr">count</span> = <span class="string">1;</span></span></span><br><span class="line"><span class="tag">            <span class="attr">application.setAttribute</span>("<span class="attr">count</span>",<span class="attr">count</span>);</span></span><br><span class="line"><span class="tag">        &#125;<span class="attr">else</span> &#123;</span></span><br><span class="line"><span class="tag">            //当<span class="attr">count</span>不为空，将<span class="attr">count</span>自增，存入<span class="attr">application</span>域</span></span><br><span class="line"><span class="tag">            <span class="attr">count</span>++;</span></span><br><span class="line"><span class="tag">            <span class="attr">application.setAttribute</span>("<span class="attr">count</span>", <span class="attr">count</span>);</span></span><br><span class="line"><span class="tag">        &#125;</span></span><br><span class="line"><span class="tag">    %&gt;</span></span><br><span class="line">    您是当前第<span class="tag">&lt;<span class="name">%=count%</span>&gt;</span>位访客。</span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>测试结果：</p>
 <p><img src="https://img-blog.csdnimg.cn/20200323151342790.png" alt="在这里插入图片描述"></p>
@@ -467,6 +467,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Servlet</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Session</a>
               </li>
              
@@ -475,11 +479,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JSP</a>
+                <a href="javascript:void(0)" class="js-tag color1">EL表达式</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Servlet</a>
+                <a href="javascript:void(0)" class="js-tag color3">JSTL标签库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Filter</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">JSP</a>
               </li>
             
             <div class="clearfix"></div>
