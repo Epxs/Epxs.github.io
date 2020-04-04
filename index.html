@@ -62,7 +62,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 8
+			总文章数 10
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -151,20 +151,20 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-Spring框架——IOC(2)" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Spring框架——IoC(4)" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header"> 
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/03/Spring%E6%A1%86%E6%9E%B6%E2%80%94%E2%80%94IOC(2)/">Spring框架——IOC(2)</a>
+      <a class="article-title" href="/2020/04/04/Spring%E6%A1%86%E6%9E%B6%E2%80%94%E2%80%94IoC(4)/">Spring框架——IoC(4)</a>
     </h1>
   
 
         
-        <a href="/2020/04/03/Spring%E6%A1%86%E6%9E%B6%E2%80%94%E2%80%94IOC(2)/" class="archive-article-date">
-  	<time datetime="2020-04-03T06:28:47.908Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-03</time>
+        <a href="/2020/04/04/Spring%E6%A1%86%E6%9E%B6%E2%80%94%E2%80%94IoC(4)/" class="archive-article-date">
+  	<time datetime="2020-04-04T04:44:58.149Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-04</time>
 </a>
         
       </header>
@@ -172,7 +172,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="装配Bean的方式"><a href="#装配Bean的方式" class="headerlink" title="装配Bean的方式"></a>装配Bean的方式</h2><p>给配置bean配置属性的方式有多种，既可以设置通过property标签的属性值来装配，也可以通过constructor-arg标签装配。使用property标签调用的是对象的setter方法，使用constructor-arg标签调用的则是有参构造。</p>
+        <h2 id="Ioc工厂方法"><a href="#Ioc工厂方法" class="headerlink" title="Ioc工厂方法"></a>Ioc工厂方法</h2><p>IoC作为典型的工厂模式，通过IoC工厂模式创建bean主要由两种方法：</p>
+<ul>
+<li>静态工厂方法</li>
+<li>实例工厂方法
         
       
 
@@ -186,11 +189,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">IOC</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Srping</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">IoC</a>
         		</li>
       		
 		</ul>
@@ -200,7 +203,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/03/Spring%E6%A1%86%E6%9E%B6%E2%80%94%E2%80%94IOC(2)/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/04/04/Spring%E6%A1%86%E6%9E%B6%E2%80%94%E2%80%94IoC(4)/">展开全文 >></a>
         </p>
       
 
@@ -230,19 +233,181 @@
 
 
   
-    <article id="post-Spring框架——IOC(1)" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Spring框架——IoC(3)" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header"> 
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/03/Spring%E6%A1%86%E6%9E%B6%E2%80%94%E2%80%94IOC(1)/">Spring框架——IOC(1)</a>
+      <a class="article-title" href="/2020/04/03/Spring%E6%A1%86%E6%9E%B6%E2%80%94%E2%80%94IoC(3)/">Spring框架——IoC(3)</a>
     </h1>
   
 
         
-        <a href="/2020/04/03/Spring%E6%A1%86%E6%9E%B6%E2%80%94%E2%80%94IOC(1)/" class="archive-article-date">
+        <a href="/2020/04/03/Spring%E6%A1%86%E6%9E%B6%E2%80%94%E2%80%94IoC(3)/" class="archive-article-date">
+  	<time datetime="2020-04-03T11:20:54.517Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-03</time>
+</a>
+        
+      </header>
+     
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Scope作用域"><a href="#Scope作用域" class="headerlink" title="Scope作用域"></a>Scope作用域</h2><p>Spring中的bean是根据scope来生成的，scope用于表示bean的作用域。</p>
+<p>scope有以下四种类型：</p>
+<ul>
+<li>singleton：单例，IoC容器中配置的bean唯一的，bean以单例方式存在，每次获取的对象也是唯一的。</li>
+<li>prototype：原型，每次从容器中获取bean时，都返回一个新的实例。
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Srping</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">IoC</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/04/03/Spring%E6%A1%86%E6%9E%B6%E2%80%94%E2%80%94IoC(3)/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Spring框架——IoC(2)" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header"> 
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/03/Spring%E6%A1%86%E6%9E%B6%E2%80%94%E2%80%94IoC(2)/">Spring框架——IoC(2)</a>
+    </h1>
+  
+
+        
+        <a href="/2020/04/03/Spring%E6%A1%86%E6%9E%B6%E2%80%94%E2%80%94IoC(2)/" class="archive-article-date">
+  	<time datetime="2020-04-03T06:28:47.908Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-03</time>
+</a>
+        
+      </header>
+     
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="装配Bean的方式"><a href="#装配Bean的方式" class="headerlink" title="装配Bean的方式"></a>装配Bean的方式</h2><p>给配置bean配置属性的方式有多种，既可以设置通过property标签的属性值来装配，也可以通过constructor-arg标签装配。使用property标签调用的是对象的setter方法，使用constructor-arg标签调用的则是有参构造。</p>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">IoC</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/04/03/Spring%E6%A1%86%E6%9E%B6%E2%80%94%E2%80%94IoC(2)/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Spring框架——IoC(1)" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header"> 
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/03/Spring%E6%A1%86%E6%9E%B6%E2%80%94%E2%80%94IoC(1)/">Spring框架——IoC(1)</a>
+    </h1>
+  
+
+        
+        <a href="/2020/04/03/Spring%E6%A1%86%E6%9E%B6%E2%80%94%E2%80%94IoC(1)/" class="archive-article-date">
   	<time datetime="2020-04-03T05:06:40.203Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-03</time>
 </a>
         
@@ -269,7 +434,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">IOC</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">IoC</a>
         		</li>
       		
 		</ul>
@@ -279,7 +444,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/03/Spring%E6%A1%86%E6%9E%B6%E2%80%94%E2%80%94IOC(1)/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/04/03/Spring%E6%A1%86%E6%9E%B6%E2%80%94%E2%80%94IoC(1)/">展开全文 >></a>
         </p>
       
 
@@ -867,19 +1032,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">EL表达式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">JSTL标签库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Servlet</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JSP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -891,7 +1044,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">EL表达式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">JSTL标签库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Filter</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">JSP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -899,7 +1064,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">IOC</a>
+                <a href="javascript:void(0)" class="js-tag color4">IoC</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -26,7 +26,7 @@
 <meta property="og:image" content="https://img-blog.csdnimg.cn/2020032719023423.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20200327190250519.png">
 <meta property="article:published_time" content="2020-03-27T11:28:00.000Z">
-<meta property="article:modified_time" content="2020-03-27T11:32:42.200Z">
+<meta property="article:modified_time" content="2020-04-04T05:32:27.109Z">
 <meta property="article:author" content="Epxs">
 <meta property="article:tag" content="Filter">
 <meta name="twitter:card" content="summary">
@@ -78,7 +78,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 8
+			总文章数 10
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -196,9 +196,11 @@ Filter过滤器的工作过程可简化为下图：</li>
 <h2 id="Filter的使用"><a href="#Filter的使用" class="headerlink" title="Filter的使用"></a>Filter的使用</h2><p>和Servlet一样，Filter也是一个用于Java We编程的一个接口，开发者只需自定义一个类并让该类实现Filter接口即可。init()方法和destory()方法可以不实现。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> javax.servlet.*;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FilterTest</span> <span class="keyword">implements</span> <span class="title">Filter</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">(FilterConfig filterConfig)</span> <span class="keyword">throws</span> ServletException </span>&#123;</span><br><span class="line">    <span class="comment">//该方法可不实现</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">destroy</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">//该方法可不实现</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doFilter</span><span class="params">(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain)</span> <span class="keyword">throws</span> IOException, ServletException </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="Filter过滤器方法"><a href="#Filter过滤器方法" class="headerlink" title="Filter过滤器方法"></a>Filter过滤器方法</h2><p>1、public void init(FilterConfig filterConfig)：web 应用程序启动时，服务器会创建Filter 的实例对象，并调用其init方法，读取web.xml配置，完成对象的初始化功能，filter对象只创建一次，init方法也只执行一次。</p>
-<p>2、public void doFilter (ServletRequest, ServletResponse, FilterChain)：<br>该方法完成实际的过滤操作，当客户端请求方法与过滤器设置匹配的URL时，Servlet 容器将先调用过滤器的 doFilter 方法。FilterChain 用于将请求和响应继续向后传递。doFilter方法可执行多次。</p>
-<p>3、public void destroy()：服务器关闭时，Servlet容器在销毁过滤器实例前调用该方法，在该方法中释放Servlet过滤器占用的资源。该方法只调用一次。</p>
+<h2 id="Filter过滤器方法"><a href="#Filter过滤器方法" class="headerlink" title="Filter过滤器方法"></a>Filter过滤器方法</h2><ul>
+<li>1 public void init(FilterConfig filterConfig)：web 应用程序启动时，服务器会创建Filter 的实例对象，并调用其init方法，读取web.xml配置，完成对象的初始化功能，filter对象只创建一次，init方法也只执行一次。</li>
+<li>2 public void doFilter (ServletRequest, ServletResponse, FilterChain)：<br>该方法完成实际的过滤操作，当客户端请求方法与过滤器设置匹配的URL时，Servlet 容器将先调用过滤器的 doFilter 方法。FilterChain 用于将请求和响应继续向后传递。doFilter方法可执行多次。</li>
+<li>3 public void destroy()：服务器关闭时，Servlet容器在销毁过滤器实例前调用该方法，在该方法中释放Servlet过滤器占用的资源。该方法只调用一次。</li>
+</ul>
 <h2 id="Filter的配置"><a href="#Filter的配置" class="headerlink" title="Filter的配置"></a>Filter的配置</h2><p>与Servlet的配置一样，Filter即可通过web.xml文件来配置映射，也可以通过注解的方式配置。</p>
 <p>1、通过web.xml的方式</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">filter</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>myFilter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">filter-class</span>&gt;</span>com.epxs.test.FilterTest<span class="tag">&lt;/<span class="name">filter-class</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">filter</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">filter-mapping</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>myFilter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/test<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">filter-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -209,7 +211,7 @@ Filter过滤器的工作过程可简化为下图：</li>
 <p>示例：这里定义了一个SrevletTest和FilterTest，当客户端向ServletTest发起请求时，会先进到FilterTest，并执行doFilter()方法，执行完成后继续将请求向ServletTest传递。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@WebServlet</span>(<span class="string">"/test"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ServletTest</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"这里是ServletTest"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@WebFilter</span>(<span class="string">"/test"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FilterTest</span> <span class="keyword">implements</span> <span class="title">Filter</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doFilter</span><span class="params">(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain)</span> <span class="keyword">throws</span> IOException, ServletException </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"这是过滤器FilterTest"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@WebFilter</span>(<span class="string">"/test"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FilterTest</span> <span class="keyword">implements</span> <span class="title">Filter</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doFilter</span><span class="params">(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain)</span> <span class="keyword">throws</span> IOException, ServletException </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"这是过滤器FilterTest"</span>);</span><br><span class="line">        filterChain.doFilter(servletRequest,servletResponse);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>测试结果：</p>
 <p><img src="https://img-blog.csdnimg.cn/20200327174055987.png" alt="在这里插入图片描述"></p>
@@ -359,11 +361,11 @@ Filter过滤器的工作过程可简化为下图：</li>
   
 <nav id="article-nav">
   
-    <a href="/2020/04/03/Spring%E6%A1%86%E6%9E%B6%E2%80%94%E2%80%94IOC(1)/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/04/03/Spring%E6%A1%86%E6%9E%B6%E2%80%94%E2%80%94IoC(1)/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Spring框架——IOC(1)
+          Spring框架——IoC(1)
         
       </div>
     </a>
@@ -496,19 +498,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">EL表达式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">JSTL标签库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Servlet</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JSP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -520,7 +510,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">EL表达式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">JSTL标签库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Filter</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">JSP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -528,7 +530,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">IOC</a>
+                <a href="javascript:void(0)" class="js-tag color4">IoC</a>
               </li>
              
               <li class="article-tag-list-item">

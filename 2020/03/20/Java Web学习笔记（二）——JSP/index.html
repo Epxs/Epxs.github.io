@@ -26,7 +26,7 @@
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20200321130615595.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20200321130629746.png">
 <meta property="article:published_time" content="2020-03-20T08:23:10.000Z">
-<meta property="article:modified_time" content="2020-03-27T11:28:10.886Z">
+<meta property="article:modified_time" content="2020-04-04T05:17:00.794Z">
 <meta property="article:author" content="Epxs">
 <meta property="article:tag" content="JSP">
 <meta name="twitter:card" content="summary">
@@ -78,7 +78,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 8
+			总文章数 10
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -186,25 +186,18 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="什么是JSP"><a href="#什么是JSP" class="headerlink" title="什么是JSP"></a>什么是JSP</h2><p>JSP全称Java Server Pages，是一种动态网页开发技术。JSP的本质是一种Servlet，主要用于实现Java web应用程序的用户界面部分，并将最终的界⾯呈现给⽤户。<a id="more"></a>单纯的从代码的角度来看，JSP文件实际上是一个潜入了Java代码的HTML文件，是一个HTML+CSS+JS+Java的混合文件。</p>
+        <h2 id="什么是JSP"><a href="#什么是JSP" class="headerlink" title="什么是JSP"></a>什么是JSP</h2><p>JSP全称Java Server Pages，是一种动态网页开发技术。JSP的本质是一种Servlet，主要用于实现Java web应用程序的用户界面部分，并将最终的界⾯呈现给⽤户。<a id="more"></a>单纯的从代码的角度来看，JSP文件实际上是一个注入了Java代码的HTML文件，是一个HTML+CSS+JS+Java的混合文件。</p>
 <h2 id="JSP工作原理"><a href="#JSP工作原理" class="headerlink" title="JSP工作原理"></a>JSP工作原理</h2><p>JSP处理网页的步骤可用下图来表示：</p>
 <p><img src="https://img-blog.csdnimg.cn/20200319154737945.png" alt="在这里插入图片描述"></p>
 <p>以下步骤表明了 Web 服务器是如何使用JSP来创建网页的：</p>
 <ul>
-<li><p>就像其他普通的网页一样，您的浏览器发送一个 HTTP 请求给服务器。</p>
-</li>
-<li><p>Web 服务器识别出这是一个对 JSP 网页的请求，并且将该请求传递给 JSP 引擎。通过使用 URL或者 .jsp 文件来完成。</p>
-</li>
-<li><p>JSP 引擎从磁盘中载入 JSP 文件，然后将它们转化为 Servlet。这种转化只是简单地将所有模板文本改用 println() 语句，并且将所有的 JSP 元素转化成 Java 代码。</p>
-</li>
-<li><p>JSP 引擎将 Servlet 编译成可执行类，并且将原始请求传递给 Servlet 引擎。</p>
-</li>
-<li><p>Web 服务器的某组件将会调用 Servlet 引擎，然后载入并执行 Servlet 类。在执行过程中，Servlet 产生 HTML 格式的输出并将其内嵌于 HTTP response 中上交给 Web 服务器。</p>
-</li>
-<li><p>Web 服务器以静态 HTML 网页的形式将 HTTP response 返回到您的浏览器中。</p>
-</li>
-<li><p>最终，Web 浏览器处理 HTTP response 中动态产生的HTML网页，就好像在处理静态网页一样。</p>
-</li>
+<li>就像其他普通的网页一样，您的浏览器发送一个 HTTP 请求给服务器。</li>
+<li>Web 服务器识别出这是一个对 JSP 网页的请求，并且将该请求传递给 JSP 引擎。通过使用 URL或者 .jsp 文件来完成。</li>
+<li>JSP 引擎从磁盘中载入 JSP 文件，然后将它们转化为 Servlet。这种转化只是简单地将所有模板文本改用 println() 语句，并且将所有的 JSP 元素转化成 Java 代码。</li>
+<li>JSP 引擎将 Servlet 编译成可执行类，并且将原始请求传递给 Servlet 引擎。</li>
+<li>Web 服务器的某组件将会调用 Servlet 引擎，然后载入并执行 Servlet 类。在执行过程中，Servlet 产生 HTML 格式的输出并将其内嵌于 HTTP response 中上交给 Web 服务器。</li>
+<li>Web 服务器以静态 HTML 网页的形式将 HTTP response 返回到您的浏览器中。</li>
+<li>最终，Web 浏览器处理 HTTP response 中动态产生的HTML网页，就好像在处理静态网页一样。</li>
 </ul>
 <h2 id="Java嵌入的三种方式"><a href="#Java嵌入的三种方式" class="headerlink" title="Java嵌入的三种方式"></a>Java嵌入的三种方式</h2><p>1、JSP脚本：可以包含任意量的Java语句、变量、方法或表达式，用于执行Java的逻辑代码。</p>
 <figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;%</span><br><span class="line">  Java代码</span><br><span class="line">%&gt;</span><br></pre></td></tr></table></figure>
@@ -223,7 +216,7 @@
 <p>查看该页面源代码：</p>
 <p><img src="https://img-blog.csdnimg.cn/20200318211619145.png" alt="在这里插入图片描述"></p>
 <p>示例2：在jsp文件里定义一个List集合，集合中放的是User类的对象，并用一个表格输出到浏览器页面中。</p>
-<p>User类：</p>
+<p>创建一个User类：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.epxs.test;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> Integer age;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Integer <span class="title">getAge</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAge</span><span class="params">(Integer age)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">User</span><span class="params">(String name, Integer age)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">        <span class="keyword">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>在index.jsp文件中，定义集合，并以表格形式输出。</p>
@@ -232,15 +225,17 @@
 <p>测试结果：</p>
 <p><img src="https://img-blog.csdnimg.cn/20200318213619108.png" alt="在这里插入图片描述"></p>
 <h2 id="JSP内置对象"><a href="#JSP内置对象" class="headerlink" title="JSP内置对象"></a>JSP内置对象</h2><p>JSP内置对象是指JSP容器为每个页面提供的Java对象，开发者可以直接使用它们而不用显式声明。JSP共有九大内置对象，分别为：</p>
-<p>1、request：HttpServletRequest 类的实例，表示一次请求。</p>
-<p>2、response：HttpServletResponse类的实例，表示一次响应。</p>
-<p>3、out：JspWriter 类的实例，用来写入内容，向浏览器输出数据。</p>
-<p>4、pageContext：PageContext 类的实例，用来代表整个JSP页面。</p>
-<p>5、session：表示⼀次会话，保存⽤户信息,HttpSession的实例。</p>
-<p>6、application：ServletContext的实例，表示当前 Web 应⽤，全局对象，保存所有⽤户共享信息。</p>
-<p>7、config：当前 JSP 对应的 Servlet 的 ServletConfig 对象，获取当前 Servlet 的信息，允许开发者访问Servlet或者JSP引擎的初始化参数。</p>
-<p>8、 page：当前 JSP 对应的 Servlet 对象， page 对象就是this对象的同义词。</p>
-<p>9、 exception：Exception类的对象，代表发生错误的JSP页面中对应的异常对象。</p>
+<ul>
+<li>request：HttpServletRequest 类的实例，表示一次请求。</li>
+<li>response：HttpServletResponse类的实例，表示一次响应。</li>
+<li>out：JspWriter 类的实例，用来写入内容，向浏览器输出数据。</li>
+<li>pageContext：PageContext 类的实例，用来代表整个JSP页面。</li>
+<li>session：表示⼀次会话，保存⽤户信息,HttpSession的实例。</li>
+<li>application：ServletContext的实例，表示当前 Web 应⽤，全局对象，保存所有⽤户共享信息。</li>
+<li>config：当前 JSP 对应的 Servlet 的 ServletConfig 对象，获取当前 Servlet 的信息，允许开发者访问Servlet或者JSP引擎的初始化参数。</li>
+<li>page：当前 JSP 对应的 Servlet 对象， page 对象就是this对象的同义词。</li>
+<li>exception：Exception类的对象，代表发生错误的JSP页面中对应的异常对象。</li>
+</ul>
 <h2 id="HTTP状态码"><a href="#HTTP状态码" class="headerlink" title="HTTP状态码"></a>HTTP状态码</h2><p>当浏览者访问一个网页时，浏览者的浏览器会向网页所在服务器发出请求。当浏览器接收并显示网页前，此网页所在的服务器会返回一个包含HTTP状态码的信息头（server header）用以响应浏览器的请求。常见的状态码及其表示的信息：</p>
 <ul>
 <li>200：OK，表示正常，请求成功。</li>
@@ -252,7 +247,7 @@
 <p>示例：浏览将 id（值为1）参数传给jsp，jsp文件调用requset对象的getParameter()方法，获取到 id 的值，并在浏览器端打印。</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Hello<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">%</span></span></span><br><span class="line"><span class="tag">      <span class="attr">String</span> <span class="attr">Value</span> = <span class="string">request.getParameter(</span>"<span class="attr">id</span>");</span></span><br><span class="line"><span class="tag">    %&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">%=Value%</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>（参数的传递通过?+name=value 的形式），浏览器端得到并输出 id 的值。</p>
+<p>（参数的传递通过 ?+name=value 的形式），浏览器端得到并输出 id 的值。</p>
 <p><img src="https://img-blog.csdnimg.cn/2020031917133888.png" alt="在这里插入图片描述"></p>
 <p>2、setAttribute(String key,Object value) （通过键值对的形式保存数据）&amp;getAttribute(String key)（通过key取出值）。这两个方法，相互对应，一存一取，实现对参数的操作。</p>
 <p>示例：这里首先调用setAttribute()存入了一个name=”Jack”的键值对，再通过getAtrribute()方法取出，并输出到浏览器端。</p>
@@ -270,7 +265,7 @@
 
 <p>测试结果：</p>
 <p><img src="https://img-blog.csdnimg.cn/20200319175947242.png" alt="在这里插入图片描述"></p>
-<p>这个例子可以看出，两个jsp文件共用了一个request，且调用getRequestDispatcher()方法后，浏览器的地址栏没有发生改变，还是index.jsp，但页面的内容确是index1.jsp的内容。</p>
+<p>这个例子可以看出，两个jsp文件共用了一个request，且调用getRequestDispatcher()方法后，浏览器的地址栏没有发生改变，还是index.jsp，但页面的内容则是index1.jsp的内容。</p>
 <p>4、getParameterValues() 获取客户端传来的多个同名参数，且返回一个String类型的数组。</p>
 <p>示例：用getParameterValues()方法接受多个参数的值：</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>title<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">%</span></span></span><br><span class="line"><span class="tag">      <span class="attr">String</span>[] <span class="attr">values</span> = <span class="string">request.getParameterValues(</span>"<span class="attr">name</span>");</span></span><br><span class="line"><span class="tag">    %&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">%=Arrays.toString(values)%</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -539,19 +534,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">EL表达式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">JSTL标签库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Servlet</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JSP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -563,7 +546,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">EL表达式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">JSTL标签库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Filter</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">JSP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -571,7 +566,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">IOC</a>
+                <a href="javascript:void(0)" class="js-tag color4">IoC</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -6,15 +6,27 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: Srping | Epxs的个人博客</title>
+  <title>Spring框架——IoC(4) | Epxs的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Epxs的个人博客">
-<meta property="og:url" content="http://yoursite.com/tags/Srping/index.html">
+  <meta name="description" content="Ioc工厂方法IoC作为典型的工厂模式，通过IoC工厂模式创建bean主要由两种方法：  静态工厂方法 实例工厂方法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring框架——IoC(4)">
+<meta property="og:url" content="http://yoursite.com/2020/04/04/Spring%E6%A1%86%E6%9E%B6%E2%80%94%E2%80%94IoC(4)/index.html">
 <meta property="og:site_name" content="Epxs的个人博客">
+<meta property="og:description" content="Ioc工厂方法IoC作为典型的工厂模式，通过IoC工厂模式创建bean主要由两种方法：  静态工厂方法 实例工厂方法">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200404112029139.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200404114150152.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200404121651398.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200404123556596.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200404124445856.png">
+<meta property="article:published_time" content="2020-04-04T04:44:58.149Z">
+<meta property="article:modified_time" content="2020-04-04T04:59:36.205Z">
 <meta property="article:author" content="Epxs">
+<meta property="article:tag" content="Srping">
+<meta property="article:tag" content="IoC">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200404112029139.png">
   
     <link rel="alternative" href="/atom.xml" title="Epxs的个人博客" type="application/atom+xml">
   
@@ -149,36 +161,126 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-Spring框架——IoC(4)" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header"> 
+        
   
+    <h1 class="article-title" itemprop="name">
+      Spring框架——IoC(4)
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/04/Spring%E6%A1%86%E6%9E%B6%E2%80%94%E2%80%94IoC(4)/" class="archive-article-date">
+
+        
+        <a href="/2020/04/04/Spring%E6%A1%86%E6%9E%B6%E2%80%94%E2%80%94IoC(4)/" class="archive-article-date">
   	<time datetime="2020-04-04T04:44:58.149Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-04</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/04/Spring%E6%A1%86%E6%9E%B6%E2%80%94%E2%80%94IoC(4)/">Spring框架——IoC(4)</a>
-    </h1>
-  
+        
+      </header>
+     
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Ioc工厂方法"><a href="#Ioc工厂方法" class="headerlink" title="Ioc工厂方法"></a>Ioc工厂方法</h2><p>IoC作为典型的工厂模式，通过IoC工厂模式创建bean主要由两种方法：</p>
+<ul>
+<li>静态工厂方法</li>
+<li>实例工厂方法<a id="more"></a>
+<h3 id="静态工厂方法"><a href="#静态工厂方法" class="headerlink" title="静态工厂方法"></a>静态工厂方法</h3></li>
+</ul>
+<p>1 通过静态工厂方法去获取对象，这里首先创建一个Computer类。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.epxs.entity;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> lombok.AllArgsConstructor;</span><br><span class="line"><span class="keyword">import</span> lombok.Data;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="meta">@AllArgsConstructor</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Computer</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Integer id;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-        <div class="article-info info-on-right">
-          
+<p>2 创建一个静态工厂类，并提供获取computer对象的静态方法。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.epxs.factory;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.epxs.entity.Computer;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.HashMap;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ComputerFactory</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Map&lt;Integer, Computer&gt; computerMap;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//在静态代码块中，初始化computer对象</span></span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        computerMap = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        computerMap.put(<span class="number">1</span>,<span class="keyword">new</span> Computer(<span class="number">1</span>,<span class="string">"联想"</span>));</span><br><span class="line">        computerMap.put(<span class="number">2</span>,<span class="keyword">new</span> Computer(<span class="number">2</span>,<span class="string">"华硕"</span>));</span><br><span class="line">        computerMap.put(<span class="number">3</span>,<span class="keyword">new</span> Computer(<span class="number">3</span>,<span class="string">"戴尔"</span>));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Computer <span class="title">getComputer</span><span class="params">(Integer id)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> computerMap.get(id);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>3 传统的获取computer对象的方式是通过手动调用静态工厂方法来实现的。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">     Computer computer1 = ComputerFactory.getComputer(<span class="number">1</span>);</span><br><span class="line">     Computer computer2 = ComputerFactory.getComputer(<span class="number">2</span>);</span><br><span class="line">     Computer computer3 = ComputerFactory.getComputer(<span class="number">3</span>);</span><br><span class="line">     System.out.println(computer1);</span><br><span class="line">     System.out.println(computer2);</span><br><span class="line">     System.out.println(computer3);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>4 在Spring IoC中，我们将ComputerFactory这个静态工厂类交给IoC容器来管理。在xml文件中，配置静态工厂。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">"http://www.springframework.org/schema/beans"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 配置静态工厂，通过静态工厂创建computer对象</span></span><br><span class="line"><span class="comment">        factory-method：静态工厂方法名</span></span><br><span class="line"><span class="comment">        &lt;constructor-arg&gt;：给方法设置参数，value的值为参数的值</span></span><br><span class="line"><span class="comment">        --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"computer1"</span> <span class="attr">class</span>=<span class="string">"com.epxs.factory.ComputerFactory"</span> <span class="attr">factory-method</span>=<span class="string">"getComputer"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">value</span>=<span class="string">"1"</span>&gt;</span><span class="tag">&lt;/<span class="name">constructor-arg</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"computer2"</span> <span class="attr">class</span>=<span class="string">"com.epxs.factory.ComputerFactory"</span> <span class="attr">factory-method</span>=<span class="string">"getComputer"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">value</span>=<span class="string">"2"</span>&gt;</span><span class="tag">&lt;/<span class="name">constructor-arg</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"computer3"</span> <span class="attr">class</span>=<span class="string">"com.epxs.factory.ComputerFactory"</span> <span class="attr">factory-method</span>=<span class="string">"getComputer"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">value</span>=<span class="string">"3"</span>&gt;</span><span class="tag">&lt;/<span class="name">constructor-arg</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>5 取出computer对象。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">     <span class="comment">//加载配置文件</span></span><br><span class="line">     ApplicationContext applicationContext = <span class="keyword">new</span> ClassPathXmlApplicationContext(<span class="string">"spring.xml"</span>);</span><br><span class="line">     <span class="comment">//获取computer对象</span></span><br><span class="line">     Computer computer1 = (Computer) applicationContext.getBean(<span class="string">"computer1"</span>);</span><br><span class="line">     Computer computer2 = (Computer) applicationContext.getBean(<span class="string">"computer2"</span>);</span><br><span class="line">     Computer computer3 = (Computer) applicationContext.getBean(<span class="string">"computer3"</span>);</span><br><span class="line">     System.out.println(computer1);</span><br><span class="line">     System.out.println(computer2);</span><br><span class="line">     System.out.println(computer3);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>测试结果：</p>
+<p><img src="https://img-blog.csdnimg.cn/20200404112029139.png" alt="在这里插入图片描述"></p>
+<h3 id="实例工厂方法"><a href="#实例工厂方法" class="headerlink" title="实例工厂方法"></a>实例工厂方法</h3><p>实例工厂方法，顾名思义就是要先将工厂进行实例化，再通过调用工厂方法来创建对象。</p>
+<p>1 先定义的一个实例工厂InstanceComputerFactory，并提供获取computer对象的非静态方法。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.epxs.factory;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.epxs.entity.Computer;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.HashMap;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">InstanceComputerFactory</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Map&lt;Integer, Computer&gt; computerMap;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//在构造函数中，初始化computer对象</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">InstanceComputerFactory</span><span class="params">()</span></span>&#123;</span><br><span class="line">        computerMap = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        computerMap.put(<span class="number">1</span>,<span class="keyword">new</span> Computer(<span class="number">1</span>,<span class="string">"苹果"</span>));</span><br><span class="line">        computerMap.put(<span class="number">2</span>,<span class="keyword">new</span> Computer(<span class="number">2</span>,<span class="string">"惠普"</span>));</span><br><span class="line">        computerMap.put(<span class="number">3</span>,<span class="keyword">new</span> Computer(<span class="number">3</span>,<span class="string">"神舟"</span>));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Computer <span class="title">getComputer</span><span class="params">(Integer id)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> computerMap.get(id);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>2 传统方式</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">     <span class="comment">//创建实例工厂对象</span></span><br><span class="line">     InstanceComputerFactory instanceComputerFactory = <span class="keyword">new</span> InstanceComputerFactory();</span><br><span class="line">     <span class="comment">//通过实例工厂对象，获取computer对象</span></span><br><span class="line">     Computer computer1 = instanceComputerFactory.getComputer(<span class="number">1</span>);</span><br><span class="line">     Computer computer2 = instanceComputerFactory.getComputer(<span class="number">2</span>);</span><br><span class="line">     Computer computer3 = instanceComputerFactory.getComputer(<span class="number">3</span>);</span><br><span class="line">     System.out.println(computer1);</span><br><span class="line">     System.out.println(computer2);</span><br><span class="line">     System.out.println(computer3);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>3 通过Spring IoC来配置实例工厂，并通过实例工厂创建computer对象。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">"http://www.springframework.org/schema/beans"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 配置实例工厂--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"comFactory"</span> <span class="attr">class</span>=<span class="string">"com.epxs.factory.InstanceComputerFactory"</span>&gt;</span><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 通过实例工厂配置computer对象</span></span><br><span class="line"><span class="comment">        factory-bean：指向实例工厂对象</span></span><br><span class="line"><span class="comment">        factory-method：实例工厂方法名</span></span><br><span class="line"><span class="comment">        &lt;constructor-arg&gt;：为实例工厂方法设置参数，value的值为参数的值</span></span><br><span class="line"><span class="comment">        --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"computer1"</span> <span class="attr">factory-bean</span>=<span class="string">"comFactory"</span> <span class="attr">factory-method</span>=<span class="string">"getComputer"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">value</span>=<span class="string">"1"</span>&gt;</span><span class="tag">&lt;/<span class="name">constructor-arg</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"computer2"</span> <span class="attr">factory-bean</span>=<span class="string">"comFactory"</span> <span class="attr">factory-method</span>=<span class="string">"getComputer"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">value</span>=<span class="string">"2"</span>&gt;</span><span class="tag">&lt;/<span class="name">constructor-arg</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"computer3"</span> <span class="attr">factory-bean</span>=<span class="string">"comFactory"</span> <span class="attr">factory-method</span>=<span class="string">"getComputer"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">value</span>=<span class="string">"3"</span>&gt;</span><span class="tag">&lt;/<span class="name">constructor-arg</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>4 获取computer对象。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">     <span class="comment">//加载配置文件</span></span><br><span class="line">     ApplicationContext applicationContext = <span class="keyword">new</span> ClassPathXmlApplicationContext(<span class="string">"spring.xml"</span>);</span><br><span class="line">     <span class="comment">//获取computer对象</span></span><br><span class="line">     Computer computer1 = (Computer) applicationContext.getBean(<span class="string">"computer1"</span>);</span><br><span class="line">     Computer computer2 = (Computer) applicationContext.getBean(<span class="string">"computer2"</span>);</span><br><span class="line">     Computer computer3 = (Computer) applicationContext.getBean(<span class="string">"computer3"</span>);</span><br><span class="line">     System.out.println(computer1);</span><br><span class="line">     System.out.println(computer2);</span><br><span class="line">     System.out.println(computer3);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>测试结果：</p>
+<p><img src="https://img-blog.csdnimg.cn/20200404114150152.png" alt="在这里插入图片描述"></p>
+<p>总结：静态工厂类中，初始化操作写在静态代码块里，在类加载的时候完成初始化操作，而定义的静态工厂方法可以通过类名直接调用，无需创建工厂对象，所以在配置文件中，只需配置一个computer bean，而不需要配置ComputerFactory bean。</p>
+<p>实例工厂方法中，初始化操作写在构造函数里，且调用的是非静态方法，所以创建computer对象时，必须先创建工厂的实体类。所以配置文件中，必须要先配置一个实例工厂对象，再去配置computer bean。</p>
+<h2 id="IoC自动装载"><a href="#IoC自动装载" class="headerlink" title="IoC自动装载"></a>IoC自动装载</h2><p>IoC可以完成对象的创建，通过设置property标签的ref属性可以实现依赖注入（DI）。这是一种手动注入的方法，而Spring框架也提供了一种自动注入的方式，开发者无需手动配置property，由IoC容器自动完成注入bean的操作，即自动装载（AutoWire）。</p>
+<p>实现自动装载有两种方式：</p>
+<ul>
+<li>byName：通过属性名</li>
+<li>byType：通过数据类型</li>
+</ul>
+<h3 id="byName"><a href="#byName" class="headerlink" title="byName"></a>byName</h3><p>1 创建一个Student类，Student类的成员里包含一个Computer对象。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.epxs.entity;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> lombok.Data;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Integer id;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> Computer computer;      <span class="comment">//Computer(id,name)</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>2 配置student bean和computer bean，通过byName的方式，进行自动装载实现依赖注入。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">"http://www.springframework.org/schema/beans"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 配置student对象，设置autowire的值为byName，实现自动装载--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"student"</span> <span class="attr">class</span>=<span class="string">"com.epxs.entity.Student"</span> <span class="attr">autowire</span>=<span class="string">"byName"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"id"</span> <span class="attr">value</span>=<span class="string">"1"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"name"</span> <span class="attr">value</span>=<span class="string">"Jerry"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 这里并没有给computer属性赋值--&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 配置computer对象--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"computer"</span> <span class="attr">class</span>=<span class="string">"com.epxs.entity.Computer"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"id"</span> <span class="attr">value</span>=<span class="string">"2"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"name"</span> <span class="attr">value</span>=<span class="string">"联想"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>3 获取student对象</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//加载配置文件</span></span><br><span class="line">    ApplicationContext applicationContext = <span class="keyword">new</span> ClassPathXmlApplicationContext(<span class="string">"spring.xml"</span>);</span><br><span class="line">    <span class="comment">//获取bean</span></span><br><span class="line">    Student student = (Student) applicationContext.getBean(<span class="string">"student"</span>);</span><br><span class="line">    System.out.println(student);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>测试结果：</p>
+<p><img src="https://img-blog.csdnimg.cn/20200404121651398.png" alt="在这里插入图片描述"></p>
+<p>这里在配置student对象时，没有给通过porperty的ref属性给computer属性赋值，而是设置autowire的值为byName，通过属性名自动装载，所以IoC容器会自动匹配属性名，去找一个id=”computer”的bean，如果找到，就将这个bean自动注入到student bean中。</p>
+<p>这里要求computer bean的id值必须和Student类中的属性名一致，否则将注入失败。</p>
+<h3 id="byType"><a href="#byType" class="headerlink" title="byType"></a>byType</h3><p>1 配置student bean和computer bean，并通过byType的方式，进行自动装载。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">"http://www.springframework.org/schema/beans"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 配置student对象，设置autowire的值为byType，实现自动装载--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"student"</span> <span class="attr">class</span>=<span class="string">"com.epxs.entity.Student"</span> <span class="attr">autowire</span>=<span class="string">"byType"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"id"</span> <span class="attr">value</span>=<span class="string">"1"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"name"</span> <span class="attr">value</span>=<span class="string">"Jerry"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 配置computer对象--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"com"</span> <span class="attr">class</span>=<span class="string">"com.epxs.entity.Computer"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"id"</span> <span class="attr">value</span>=<span class="string">"2"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"name"</span> <span class="attr">value</span>=<span class="string">"联想"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>2 获取student对象</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//加载配置文件</span></span><br><span class="line">    ApplicationContext applicationContext = <span class="keyword">new</span> ClassPathXmlApplicationContext(<span class="string">"spring.xml"</span>);</span><br><span class="line">    <span class="comment">//获取bean</span></span><br><span class="line">    Student student = (Student) applicationContext.getBean(<span class="string">"student"</span>);</span><br><span class="line">    System.out.println(student);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>测试结果：</p>
+<p><img src="https://img-blog.csdnimg.cn/20200404123556596.png" alt="在这里插入图片描述"></p>
+<p>通过byType的方式进行自动装载时，IoC容器会自动去匹配一个类型是Computer的bean，与该bean的id值无关，只要类型匹配，便会将该computer bean注入到studen中。</p>
+<p>ByType的方式要求整个xml文件中，只能有一个computer bean，如果配置了多个computer bean，IoC容器便不知道应该将哪一个bean注入给当前student，程序便会报错。</p>
+<p>如果配置多个computer对象，则报错。<br><img src="https://img-blog.csdnimg.cn/20200404124445856.png" alt="在这里插入图片描述"></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -194,103 +296,106 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/04/04/Spring%E6%A1%86%E6%9E%B6%E2%80%94%E2%80%94IoC(4)/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/03/Spring%E6%A1%86%E6%9E%B6%E2%80%94%E2%80%94IoC(3)/" class="archive-article-date">
-  	<time datetime="2020-04-03T11:20:54.517Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-03</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/04/03/Spring%E6%A1%86%E6%9E%B6%E2%80%94%E2%80%94IoC(3)/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Spring框架——IoC(3)</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/03/Spring%E6%A1%86%E6%9E%B6%E2%80%94%E2%80%94IoC(3)/">Spring框架——IoC(3)</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Srping</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">IoC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/03/Spring%E6%A1%86%E6%9E%B6%E2%80%94%E2%80%94IoC(1)/" class="archive-article-date">
-  	<time datetime="2020-04-03T05:06:40.203Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/03/Spring%E6%A1%86%E6%9E%B6%E2%80%94%E2%80%94IoC(1)/">Spring框架——IoC(1)</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Srping</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">IoC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
 
 
           </div>
@@ -313,9 +418,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
