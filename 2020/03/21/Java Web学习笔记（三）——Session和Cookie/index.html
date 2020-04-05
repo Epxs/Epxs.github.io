@@ -8,12 +8,12 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Java Web学习笔记（三）——Session和Cookie | Epxs的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="会话会话技术：HTTP是无状态协议，这意味着每次客户端发出请求时，服务器不会记录下先前客户端请求的任何信息，即服务器⽆法识别每⼀次 HTTP 请求的出处（不知道来⾃于哪个终端）。">
+  <meta name="description" content="会话技术会话技术：HTTP是无状态协议，这意味着每次客户端发出请求时，服务器不会记录下先前客户端请求的任何信息，即服务器⽆法识别每⼀次 HTTP 请求的出处（不知道来⾃于哪个终端）。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java Web学习笔记（三）——Session和Cookie">
 <meta property="og:url" content="http://yoursite.com/2020/03/21/Java%20Web%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94Session%E5%92%8CCookie/index.html">
 <meta property="og:site_name" content="Epxs的个人博客">
-<meta property="og:description" content="会话会话技术：HTTP是无状态协议，这意味着每次客户端发出请求时，服务器不会记录下先前客户端请求的任何信息，即服务器⽆法识别每⼀次 HTTP 请求的出处（不知道来⾃于哪个终端）。">
+<meta property="og:description" content="会话技术会话技术：HTTP是无状态协议，这意味着每次客户端发出请求时，服务器不会记录下先前客户端请求的任何信息，即服务器⽆法识别每⼀次 HTTP 请求的出处（不知道来⾃于哪个终端）。">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20200321170123935.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20200321171311502.png">
@@ -24,7 +24,7 @@
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20200321193156285.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20200321193923217.png">
 <meta property="article:published_time" content="2020-03-21T02:05:10.000Z">
-<meta property="article:modified_time" content="2020-04-04T05:20:27.615Z">
+<meta property="article:modified_time" content="2020-04-05T06:28:42.142Z">
 <meta property="article:author" content="Epxs">
 <meta property="article:tag" content="Session">
 <meta property="article:tag" content="Cookie">
@@ -185,7 +185,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="会话"><a href="#会话" class="headerlink" title="会话"></a>会话</h2><p>会话技术：HTTP是<strong>无状态协议</strong>，这意味着每次客户端发出请求时，服务器不会记录下先前客户端请求的任何信息，即服务器⽆法识别每⼀次 HTTP 请求的出处（不知道来⾃于哪个终端）。<a id="more"></a>所以必须要有⼀种技术来让服务器知道请求来⾃哪里，这就是<strong>会话技术</strong>。以电商为例，当A要购买一件商品，向服务器发起“购买”请求，要求服务器将商品加到自己的购物车，因为服务器无法得知该请求的出处，所以就可能将商品加到B（或C或D…）的购物车里。</p>
+        <h2 id="会话技术"><a href="#会话技术" class="headerlink" title="会话技术"></a>会话技术</h2><p>会话技术：HTTP是<strong>无状态协议</strong>，这意味着每次客户端发出请求时，服务器不会记录下先前客户端请求的任何信息，即服务器⽆法识别每⼀次 HTTP 请求的出处（不知道来⾃于哪个终端）。<a id="more"></a>所以必须要有⼀种技术来让服务器知道请求来⾃哪里，这就是<strong>会话技术</strong>。以电商为例，当A要购买一件商品，向服务器发起“购买”请求，要求服务器将商品加到自己的购物车，因为服务器无法得知该请求的出处，所以就可能将商品加到B（或C或D…）的购物车里。</p>
 <p>会话：会话就是客户端和服务器之间发生一系列请求的过程，具体到实际情况中，可将会话看成浏览器从打开到关闭的一个过程。</p>
 <p>会话的实现方式：</p>
 <ul>
@@ -516,15 +516,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Servlet</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Session</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Cookie</a>
+                <a href="javascript:void(0)" class="js-tag color4">JSP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -536,23 +528,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Session</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Cookie</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Servlet</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Filter</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JSP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Srping</a>
+                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">IoC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
               </li>
             
             <div class="clearfix"></div>
