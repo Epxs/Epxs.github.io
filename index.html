@@ -62,7 +62,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 10
+			总文章数 11
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -151,6 +151,86 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Spring框架——基于注解的开发" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header"> 
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/05/Spring%E6%A1%86%E6%9E%B6%E2%80%94%E2%80%94%E5%9F%BA%E4%BA%8E%E6%B3%A8%E8%A7%A3%E7%9A%84%E5%BC%80%E5%8F%91/">Spring框架——基于注解的开发</a>
+    </h1>
+  
+
+        
+        <a href="/2020/04/05/Spring%E6%A1%86%E6%9E%B6%E2%80%94%E2%80%94%E5%9F%BA%E4%BA%8E%E6%B3%A8%E8%A7%A3%E7%9A%84%E5%BC%80%E5%8F%91/" class="archive-article-date">
+  	<time datetime="2020-04-05T06:49:58.370Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-05</time>
+</a>
+        
+      </header>
+     
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Spring 提供了两种装配 bean 的方式：</p>
+<ul>
+<li>基于 xml 文件配置 bean</li>
+<li>使用注解配置 bean</li>
+</ul>
+<p>使用注解的方式配置 bean 可以简化开发过程，其目的与 xml 文件配置 bean 一样，都是为了降低代码的耦合程度，只是二者的形式不一样而已。</p>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/04/05/Spring%E6%A1%86%E6%9E%B6%E2%80%94%E2%80%94%E5%9F%BA%E4%BA%8E%E6%B3%A8%E8%A7%A3%E7%9A%84%E5%BC%80%E5%8F%91/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Spring框架——IoC(4)" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -172,7 +252,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Ioc工厂方法"><a href="#Ioc工厂方法" class="headerlink" title="Ioc工厂方法"></a>Ioc工厂方法</h2><p>IoC作为典型的工厂模式，通过IoC工厂模式创建bean主要由两种方法：</p>
+        <h2 id="Ioc工厂方法"><a href="#Ioc工厂方法" class="headerlink" title="Ioc工厂方法"></a>Ioc工厂方法</h2><p>IoC 作为典型的工厂模式，通过 IoC 工厂模式创建 bean 主要由两种方法：</p>
 <ul>
 <li>静态工厂方法</li>
 <li>实例工厂方法
@@ -254,8 +334,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Scope作用域"><a href="#Scope作用域" class="headerlink" title="Scope作用域"></a>Scope作用域</h2><p>Spring中的bean是根据scope来生成的，scope用于表示bean的作用域。</p>
-<p>scope有以下四种类型：</p>
+        <h2 id="Scope作用域"><a href="#Scope作用域" class="headerlink" title="Scope作用域"></a>Scope作用域</h2><p>Spring 中的 bean 是根据 scope 来生成的，scope 用于表示 bean 的作用域。</p>
+<p>scope 有以下四种类型：</p>
 <ul>
 <li>singleton：单例，IoC容器中配置的bean唯一的，bean以单例方式存在，每次获取的对象也是唯一的。</li>
 <li>prototype：原型，每次从容器中获取bean时，都返回一个新的实例。
@@ -337,7 +417,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="装配Bean的方式"><a href="#装配Bean的方式" class="headerlink" title="装配Bean的方式"></a>装配Bean的方式</h2><p>给配置bean配置属性的方式有多种，既可以设置通过property标签的属性值来装配，也可以通过constructor-arg标签装配。使用property标签调用的是对象的setter方法，使用constructor-arg标签调用的则是有参构造。</p>
+        <h2 id="装配Bean的方式"><a href="#装配Bean的方式" class="headerlink" title="装配Bean的方式"></a>装配Bean的方式</h2><p>给 bean 配置属性的方式有多种，既可以通过设置 property 标签的属性值来装配，也可以通过 constructor-arg 标签装配。使用 property 标签调用的是对象的 setter 方法，使用 constructor-arg 标签调用的则是有参构造。</p>
         
       
 
@@ -864,81 +944,10 @@
 
 
   
-    <article id="post-Java Web学习笔记（一）——Servlet" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header"> 
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/18/Java%20Web%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94Servlet/">Java Web学习笔记（一）——Servlet</a>
-    </h1>
-  
-
-        
-        <a href="/2020/03/18/Java%20Web%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94Servlet/" class="archive-article-date">
-  	<time datetime="2020-03-18T12:15:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-18</time>
-</a>
-        
-      </header>
-     
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="什么是Servlet"><a href="#什么是Servlet" class="headerlink" title="什么是Servlet"></a>什么是Servlet</h2><p>Servlet 是运行在 Web 服务器或应用服务器上的程序，它是作为来自 Web 浏览器或其他 HTTP 客户端的请求和 HTTP 服务器上的数据库或应用程序之间的中间层。简而言之，Servlet是运行在Web服务器端（Tomcat）负责与客户端进行通信的一组组件。</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Servlet</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/18/Java%20Web%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94Servlet/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
+    </nav>
   
 
 
@@ -1036,19 +1045,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">JSP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Filter</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Session</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Cookie</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">IoC</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1060,11 +1069,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Filter</a>
+                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JSP</a>
+                <a href="javascript:void(0)" class="js-tag color4">IoC</a>
               </li>
             
             <div class="clearfix"></div>
