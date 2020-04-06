@@ -6,28 +6,15 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Java Web学习笔记（四）——JSP作用域 | Epxs的个人博客</title>
+  <title>Tag: AOP | Epxs的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="page作用域page作用域只在当前的jsp页面有效，也就是用户请求的页面。其对应的内置对象是pageContext（不是page）。">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Java Web学习笔记（四）——JSP作用域">
-<meta property="og:url" content="http://yoursite.com/2020/03/23/Java%20Web%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94JSP%E4%BD%9C%E7%94%A8%E5%9F%9F/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Epxs的个人博客">
+<meta property="og:url" content="http://yoursite.com/tags/AOP/index.html">
 <meta property="og:site_name" content="Epxs的个人博客">
-<meta property="og:description" content="page作用域page作用域只在当前的jsp页面有效，也就是用户请求的页面。其对应的内置对象是pageContext（不是page）。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200323144355587.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200323144543517.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200323145242905.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200323150353312.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200323151342790.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200323151528518.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200323151446599.png">
-<meta property="article:published_time" content="2020-03-23T07:29:10.000Z">
-<meta property="article:modified_time" content="2020-04-05T06:44:21.376Z">
 <meta property="article:author" content="Epxs">
-<meta property="article:tag" content="JSP">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200323144355587.png">
   
     <link rel="alternative" href="/atom.xml" title="Epxs的个人博客" type="application/atom+xml">
   
@@ -162,219 +149,64 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Java Web学习笔记（四）——JSP作用域" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header"> 
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      Java Web学习笔记（四）——JSP作用域
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2020" class="archive-year">2020</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2020/04/07/Spring%E6%A1%86%E6%9E%B6%E2%80%94%E2%80%94AOP/" class="archive-article-date">
+  	<time datetime="2020-04-06T16:56:32.728Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-07</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2020/04/07/Spring%E6%A1%86%E6%9E%B6%E2%80%94%E2%80%94AOP/">Spring框架——AOP</a>
     </h1>
   
 
-        
-        <a href="/2020/03/23/Java%20Web%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94JSP%E4%BD%9C%E7%94%A8%E5%9F%9F/" class="archive-article-date">
-  	<time datetime="2020-03-23T07:29:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-23</time>
-</a>
-        
-      </header>
-     
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="page作用域"><a href="#page作用域" class="headerlink" title="page作用域"></a>page作用域</h2><p>page作用域只在当前的jsp页面有效，也就是用户请求的页面。其对应的内置对象是pageContext（不是page）。</p>
-<a id="more"></a>
-<p>示例：在page1.jsp页面，设置两个属性，并在page1.jsp和page2.jsp中取出。</p>
-<p>page1.jsp</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page contentType=<span class="string">"text/html;charset=UTF-8"</span> language=<span class="string">"java"</span> %&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;title&gt;Title&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;%</span><br><span class="line">        pageContext.setAttribute(<span class="string">"name1"</span>,<span class="string">"Tom"</span>);            <span class="comment">//设置属性</span></span><br><span class="line">        pageContext.setAttribute(<span class="string">"name2"</span>,<span class="string">"Jerry"</span>);          <span class="comment">//设置属性</span></span><br><span class="line">    %&gt;</span><br><span class="line"></span><br><span class="line">    &lt;%</span><br><span class="line">        String name1 = (String) pageContext.getAttribute(<span class="string">"name1"</span>);  <span class="comment">//取出属性</span></span><br><span class="line">        String name2 = (String) pageContext.getAttribute(<span class="string">"name2"</span>);  <span class="comment">//取出属性</span></span><br><span class="line">    %&gt;</span><br><span class="line">    &lt;%=name1%&gt;&lt;br/&gt;</span><br><span class="line">    &lt;%=name2%&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-
-<p>测试结果：</p>
-<p><img src="https://img-blog.csdnimg.cn/20200323144355587.png" alt="在这里插入图片描述"></p>
-<p>page2.jsp</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page contentType=<span class="string">"text/html;charset=UTF-8"</span> language=<span class="string">"java"</span> %&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;title&gt;Title&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;%</span><br><span class="line">        String name1 = (String) pageContext.getAttribute(<span class="string">"name1"</span>);  <span class="comment">//取出属性</span></span><br><span class="line">        String name2 = (String) pageContext.getAttribute(<span class="string">"name2"</span>);  <span class="comment">//取出属性</span></span><br><span class="line">    %&gt;</span><br><span class="line">    &lt;%=name1%&gt;&lt;br/&gt;</span><br><span class="line">    &lt;%=name2%&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-
-<p>测试结果：</p>
-<p><img src="https://img-blog.csdnimg.cn/20200323144543517.png" alt="在这里插入图片描述"></p>
-<h2 id="requset作用域"><a href="#requset作用域" class="headerlink" title="requset作用域"></a>requset作用域</h2><p>request作用域对应的内置对象是request，表示在一次请求中有效。通过转发的方式，可将请求中设置的属性，一直传递下去。</p>
-<p>示例：通过转发的方式在page1.jsp和page2.jsp两个页面之间传递属性。</p>
-<p>page1.jsp</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page contentType=<span class="string">"text/html;charset=UTF-8"</span> language=<span class="string">"java"</span> %&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;title&gt;Title&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;%</span><br><span class="line">        request.setAttribute(<span class="string">"name1"</span>,<span class="string">"Tom"</span>);            <span class="comment">//设置属性</span></span><br><span class="line">        request.setAttribute(<span class="string">"name2"</span>,<span class="string">"Jerry"</span>);          <span class="comment">//设置属性</span></span><br><span class="line">        request.getRequestDispatcher(<span class="string">"page2.jsp"</span>).forward(request,response);       <span class="comment">//请求转发</span></span><br><span class="line">    %&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-
-<p>page2.jsp</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page contentType=<span class="string">"text/html;charset=UTF-8"</span> language=<span class="string">"java"</span> %&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;title&gt;Title&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;%</span><br><span class="line">        String name1 = (String) request.getAttribute(<span class="string">"name1"</span>);  <span class="comment">//取出属性</span></span><br><span class="line">        String name2 = (String) request.getAttribute(<span class="string">"name2"</span>);  <span class="comment">//取出属性</span></span><br><span class="line">    %&gt;</span><br><span class="line">    &lt;%=name1%&gt;&lt;br/&gt;</span><br><span class="line">    &lt;%=name2%&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-
-<p>测试结果：</p>
-<p><img src="https://img-blog.csdnimg.cn/20200323145242905.png" alt="在这里插入图片描述"></p>
-<h2 id="session作用域"><a href="#session作用域" class="headerlink" title="session作用域"></a>session作用域</h2><p>session作用域表示在一次会话中有效。其对应的内置对象为session。通过 session 为属性设定值，在一次会话期间，发起多次请求，都可以取出值。</p>
-<p>示例：在page1中通过session设置属性，然后重定向到page2。</p>
-<p>page1.jsp</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;%@ page contentType=<span class="string">"text/html;charset=UTF-8"</span> language=<span class="string">"java"</span> %&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;title&gt;Title&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;%</span><br><span class="line">        session.setAttribute(<span class="string">"name1"</span>,<span class="string">"Tom"</span>);       <span class="comment">//设置属性</span></span><br><span class="line">        session.setAttribute(<span class="string">"name2"</span>,<span class="string">"Jerry"</span>);     <span class="comment">//设置属性</span></span><br><span class="line">        response.sendRedirect(<span class="string">"page2.jsp"</span>);        <span class="comment">//重定向</span></span><br><span class="line">    %&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-
-<p>page2.jsp</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page contentType=<span class="string">"text/html;charset=UTF-8"</span> language=<span class="string">"java"</span> %&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;title&gt;Title&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;%</span><br><span class="line">        String name1 = (String) session.getAttribute(<span class="string">"name1"</span>);  <span class="comment">//取出属性</span></span><br><span class="line">        String name2 = (String) session.getAttribute(<span class="string">"name2"</span>);  <span class="comment">//取出属性</span></span><br><span class="line">    %&gt;</span><br><span class="line">    &lt;%=name1%&gt;&lt;br/&gt;</span><br><span class="line">    &lt;%=name2%&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-
-<p>测试结果：</p>
-<p><img src="https://img-blog.csdnimg.cn/20200323150353312.png" alt="在这里插入图片描述"></p>
-<h2 id="application作用域"><a href="#application作用域" class="headerlink" title="application作用域"></a>application作用域</h2><p>application作用域在所有的应用程序中都有效，也就是当服务器开始到服务器结束这段时间，application作用域中存储的数据都是有效的。同样可以通过setAttribute赋值和getAttribute取值。</p>
-<p>示例：利用application，可以统计网页的访问量。</p>
-<p>count.jsp</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page contentType=<span class="string">"text/html;charset=UTF-8"</span> language=<span class="string">"java"</span> %&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;title&gt;Title&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;%</span><br><span class="line">        Integer count = (Integer) application.getAttribute(<span class="string">"count"</span>);</span><br><span class="line">        <span class="keyword">if</span>(count==<span class="keyword">null</span>)&#123;</span><br><span class="line">            <span class="comment">//当count值为空时，说明第一次访问，这时将count赋值为1，并存入application域</span></span><br><span class="line">            count = <span class="number">1</span>;</span><br><span class="line">            application.setAttribute(<span class="string">"count"</span>,count);</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">//当count不为空，将count自增，存入application域</span></span><br><span class="line">            count++;</span><br><span class="line">            application.setAttribute(<span class="string">"count"</span>, count);</span><br><span class="line">        &#125;</span><br><span class="line">    %&gt;</span><br><span class="line">    您是当前第&lt;%=count%&gt;位访客。</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-
-<p>测试结果：</p>
-<p><img src="https://img-blog.csdnimg.cn/20200323151342790.png" alt="在这里插入图片描述"></p>
-<p><img src="https://img-blog.csdnimg.cn/20200323151528518.png" alt="在这里插入图片描述"></p>
-<p>更换浏览器再次访问：</p>
-<p><img src="https://img-blog.csdnimg.cn/20200323151446599.png" alt="在这里插入图片描述"></p>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">JSP</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AOP</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/03/23/Java%20Web%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94JSP%E4%BD%9C%E7%94%A8%E5%9F%9F/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2020/03/24/Java%20Web%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%94%EF%BC%89%E2%80%94%E2%80%94EL%E8%A1%A8%E8%BE%BE%E5%BC%8F%E4%B8%8EJSTL/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Java Web学习笔记（五）——EL表达式与JSTL
-        
-      </div>
-    </a>
   
   
-    <a href="/2020/03/21/Java%20Web%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94Session%E5%92%8CCookie/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Java Web学习笔记（三）——Session和Cookie</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -397,9 +229,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
