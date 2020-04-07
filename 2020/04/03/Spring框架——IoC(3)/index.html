@@ -8,12 +8,12 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Spring框架——IoC(3) | Epxs的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Scope作用域Spring 中的 bean 是根据 scope 来生成的，scope 用于表示 bean 的作用域。 scope 有以下四种类型：  singleton：单例，IoC容器中配置的bean唯一的，bean以单例方式存在，每次获取的对象也是唯一的。 prototype：原型，每次从容器中获取bean时，都返回一个新的实例。">
+  <meta name="description" content="一个 Java Bean 有单例和原型两种模式，多个 Java Bean 之间可通过继承和依赖进行关联。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Spring框架——IoC(3)">
 <meta property="og:url" content="http://yoursite.com/2020/04/03/Spring%E6%A1%86%E6%9E%B6%E2%80%94%E2%80%94IoC(3)/index.html">
 <meta property="og:site_name" content="Epxs的个人博客">
-<meta property="og:description" content="Scope作用域Spring 中的 bean 是根据 scope 来生成的，scope 用于表示 bean 的作用域。 scope 有以下四种类型：  singleton：单例，IoC容器中配置的bean唯一的，bean以单例方式存在，每次获取的对象也是唯一的。 prototype：原型，每次从容器中获取bean时，都返回一个新的实例。">
+<meta property="og:description" content="一个 Java Bean 有单例和原型两种模式，多个 Java Bean 之间可通过继承和依赖进行关联。">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20200403173008802.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20200403175836405.png">
@@ -24,7 +24,7 @@
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20200403190637958.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20200403191900634.png">
 <meta property="article:published_time" content="2020-04-03T11:20:54.517Z">
-<meta property="article:modified_time" content="2020-04-05T11:12:18.724Z">
+<meta property="article:modified_time" content="2020-04-07T05:53:00.272Z">
 <meta property="article:author" content="Epxs">
 <meta property="article:tag" content="Spring">
 <meta property="article:tag" content="IoC">
@@ -185,11 +185,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Scope作用域"><a href="#Scope作用域" class="headerlink" title="Scope作用域"></a>Scope作用域</h2><p>Spring 中的 bean 是根据 scope 来生成的，scope 用于表示 bean 的作用域。</p>
+        <p>一个 Java Bean 有单例和原型两种模式，多个 Java Bean 之间可通过继承和依赖进行关联。</p>
+<a id="more"></a>
+<h2 id="Scope作用域"><a href="#Scope作用域" class="headerlink" title="Scope作用域"></a>Scope作用域</h2><p>Spring 中的 bean 是根据 scope 来生成的，scope 用于表示 bean 的作用域。</p>
 <p>scope 有以下四种类型：</p>
 <ul>
 <li>singleton：单例，IoC容器中配置的bean唯一的，bean以单例方式存在，每次获取的对象也是唯一的。</li>
-<li>prototype：原型，每次从容器中获取bean时，都返回一个新的实例。<a id="more"></a></li>
+<li>prototype：原型，每次从容器中获取bean时，都返回一个新的实例。</li>
 <li>request：请求，在一次请求中有效。每次HTTP请求都会创建一个新的bean。</li>
 <li>session：会话，同一个session共享一个bean，不同session使用不同的bean。</li>
 </ul>
@@ -550,6 +552,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">AOP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
             
             <div class="clearfix"></div>

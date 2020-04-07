@@ -172,8 +172,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="AOP概述"><a href="#AOP概述" class="headerlink" title="AOP概述"></a>AOP概述</h2><p>AOP 是 Spring 框架中除 IoC 之外的另一套重要机制。</p>
-<p>AOP 全称为 Aspect Oriented Programming，面向切面编程。面向切面编程（AOP）实际上是对面向对象编程（OOP）的补充和延伸。利用AOP可以使得业务逻辑各部分之间的耦合度降低，提高程序的可重用性，同时提高了开发的效率。</p>
+        <p>面向切面编程是对面向对象编程的补充，也是 Spring 体系中的一套重要机制。</p>
         
       
 
@@ -255,9 +254,7 @@
         <p>Spring 提供了两种装配 bean 的方式：</p>
 <ul>
 <li>基于 xml 文件配置 bean</li>
-<li>使用注解配置 bean</li>
-</ul>
-<p>使用注解的方式配置 bean 可以简化开发过程，其目的与 xml 文件配置 bean 一样，都是为了降低代码的耦合程度，只是二者的形式不一样而已。</p>
+<li>使用注解配置 bean
         
       
 
@@ -332,10 +329,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Ioc工厂方法"><a href="#Ioc工厂方法" class="headerlink" title="Ioc工厂方法"></a>Ioc工厂方法</h2><p>IoC 作为典型的工厂模式，通过 IoC 工厂模式创建 bean 主要由两种方法：</p>
-<ul>
-<li>静态工厂方法</li>
-<li>实例工厂方法
+        <p>IoC 是典型的工厂模式，通过 IoC 容器能够更加高效的管理类工厂。</p>
         
       
 
@@ -414,11 +408,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Scope作用域"><a href="#Scope作用域" class="headerlink" title="Scope作用域"></a>Scope作用域</h2><p>Spring 中的 bean 是根据 scope 来生成的，scope 用于表示 bean 的作用域。</p>
-<p>scope 有以下四种类型：</p>
-<ul>
-<li>singleton：单例，IoC容器中配置的bean唯一的，bean以单例方式存在，每次获取的对象也是唯一的。</li>
-<li>prototype：原型，每次从容器中获取bean时，都返回一个新的实例。
+        <p>一个 Java Bean 有单例和原型两种模式，多个 Java Bean 之间可通过继承和依赖进行关联。</p>
         
       
 
@@ -497,7 +487,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="装配Bean的方式"><a href="#装配Bean的方式" class="headerlink" title="装配Bean的方式"></a>装配Bean的方式</h2><p>给 bean 配置属性的方式有多种，既可以通过设置 property 标签的属性值来装配，也可以通过 constructor-arg 标签装配。使用 property 标签调用的是对象的 setter 方法，使用 constructor-arg 标签调用的则是有参构造。</p>
+        <p>使用 IoC 装配 Bean 有多种方法，一种是通过“Setter” ，另一种是通过构造。</p>
         
       
 
@@ -576,7 +566,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Spring概述"><a href="#Spring概述" class="headerlink" title="Spring概述"></a>Spring概述</h2><p>Spring 是一个开源框架，它由 Rod Johnson 创建。它是为了解决企业应用开发的复杂性而创建的。 Spring 使用基本的 JavaBean 来完成以前只可能由 EJB 完成的事情。然而， Spring 的用途不仅限于服务器端的开发。从简单性、可测试性和松耦合的角度而言，任何 Java 应用都可以从 Spring 中受益。
+        <p>IoC 是 Spring 框架的核心机制之一，使用 IoC 能够对Java Bean 进行高效的管理。</p>
         
       
 
@@ -634,19 +624,19 @@
 
 
   
-    <article id="post-Java Web学习笔记（六）——过滤器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Fliter 过滤器的使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header"> 
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/27/Java%20Web%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E5%85%AD%EF%BC%89%E2%80%94%E2%80%94%E8%BF%87%E6%BB%A4%E5%99%A8/">Java Web学习笔记（六）——过滤器</a>
+      <a class="article-title" href="/2020/03/27/Fliter%20%E8%BF%87%E6%BB%A4%E5%99%A8%E7%9A%84%E4%BD%BF%E7%94%A8/">Filter 过滤器的使用</a>
     </h1>
   
 
         
-        <a href="/2020/03/27/Java%20Web%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E5%85%AD%EF%BC%89%E2%80%94%E2%80%94%E8%BF%87%E6%BB%A4%E5%99%A8/" class="archive-article-date">
+        <a href="/2020/03/27/Fliter%20%E8%BF%87%E6%BB%A4%E5%99%A8%E7%9A%84%E4%BD%BF%E7%94%A8/" class="archive-article-date">
   	<time datetime="2020-03-27T11:28:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-27</time>
 </a>
         
@@ -655,10 +645,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Filter过滤器"><a href="#Filter过滤器" class="headerlink" title="Filter过滤器"></a>Filter过滤器</h2><p>Filter过滤器过可以动态地拦截请求和响应，以变换或使用包含在请求或响应中的信息。利用Filter过滤器，可以达到以下目的：</p>
-<ul>
-<li>在客户端的请求访问后端资源之前，拦截这些请求。</li>
-<li>在服务器的响应发送回客户端之前，处理这些响应。
+        <p>使用过滤器可以对客户端发来的请求和服务器传出的响应进行拦截和处理。</p>
         
       
 
@@ -682,7 +669,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/27/Java%20Web%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E5%85%AD%EF%BC%89%E2%80%94%E2%80%94%E8%BF%87%E6%BB%A4%E5%99%A8/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/03/27/Fliter%20%E8%BF%87%E6%BB%A4%E5%99%A8%E7%9A%84%E4%BD%BF%E7%94%A8/">展开全文 >></a>
         </p>
       
 
@@ -712,20 +699,20 @@
 
 
   
-    <article id="post-Java Web学习笔记（五）——EL表达式与JSTL" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Java Web 基本操作——EL 表达式与 JSTL" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header"> 
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/24/Java%20Web%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%94%EF%BC%89%E2%80%94%E2%80%94EL%E8%A1%A8%E8%BE%BE%E5%BC%8F%E4%B8%8EJSTL/">Java Web学习笔记（五）——EL表达式与JSTL</a>
+      <a class="article-title" href="/2020/03/25/Java%20Web%20%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%E2%80%94%E2%80%94EL%20%E8%A1%A8%E8%BE%BE%E5%BC%8F%E4%B8%8E%20JSTL/">Java Web的基本操作——EL表达式与JSTL</a>
     </h1>
   
 
         
-        <a href="/2020/03/24/Java%20Web%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%94%EF%BC%89%E2%80%94%E2%80%94EL%E8%A1%A8%E8%BE%BE%E5%BC%8F%E4%B8%8EJSTL/" class="archive-article-date">
-  	<time datetime="2020-03-24T06:38:07.340Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-24</time>
+        <a href="/2020/03/25/Java%20Web%20%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%E2%80%94%E2%80%94EL%20%E8%A1%A8%E8%BE%BE%E5%BC%8F%E4%B8%8E%20JSTL/" class="archive-article-date">
+  	<time datetime="2020-03-25T06:03:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-25</time>
 </a>
         
       </header>
@@ -733,11 +720,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="EL表达式"><a href="#EL表达式" class="headerlink" title="EL表达式"></a>EL表达式</h2><p>EL表达式的全称为Expression Language，用于简化JSP页面中获取数据时的复杂代码。主要有以下作用：</p>
-<ul>
-<li><p>获取数据</p>
-</li>
-<li><p>执行逻辑运算</p>
+        <p>EL 表达式和 JSTL 标签库是提高 Web 开发效率的重要工具。</p>
         
       
 
@@ -765,7 +748,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/24/Java%20Web%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%94%EF%BC%89%E2%80%94%E2%80%94EL%E8%A1%A8%E8%BE%BE%E5%BC%8F%E4%B8%8EJSTL/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/03/25/Java%20Web%20%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%E2%80%94%E2%80%94EL%20%E8%A1%A8%E8%BE%BE%E5%BC%8F%E4%B8%8E%20JSTL/">展开全文 >></a>
         </p>
       
 
@@ -795,19 +778,19 @@
 
 
   
-    <article id="post-Java Web学习笔记（四）——JSP作用域" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Java Web——JSP作用域" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header"> 
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/23/Java%20Web%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94JSP%E4%BD%9C%E7%94%A8%E5%9F%9F/">Java Web学习笔记（四）——JSP作用域</a>
+      <a class="article-title" href="/2020/03/23/Java%20Web%E2%80%94%E2%80%94JSP%E4%BD%9C%E7%94%A8%E5%9F%9F/">Java Web——JSP作用域</a>
     </h1>
   
 
         
-        <a href="/2020/03/23/Java%20Web%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94JSP%E4%BD%9C%E7%94%A8%E5%9F%9F/" class="archive-article-date">
+        <a href="/2020/03/23/Java%20Web%E2%80%94%E2%80%94JSP%E4%BD%9C%E7%94%A8%E5%9F%9F/" class="archive-article-date">
   	<time datetime="2020-03-23T07:29:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-23</time>
 </a>
         
@@ -816,7 +799,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="page作用域"><a href="#page作用域" class="headerlink" title="page作用域"></a>page作用域</h2><p>page作用域只在当前的jsp页面有效，也就是用户请求的页面。其对应的内置对象是pageContext（不是page）。</p>
+        <p>JSP 域对象分别：page，request，session，application。每个域对象分别对应各自的作用域。</p>
         
       
 
@@ -840,7 +823,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/23/Java%20Web%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94JSP%E4%BD%9C%E7%94%A8%E5%9F%9F/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/03/23/Java%20Web%E2%80%94%E2%80%94JSP%E4%BD%9C%E7%94%A8%E5%9F%9F/">展开全文 >></a>
         </p>
       
 
@@ -870,19 +853,19 @@
 
 
   
-    <article id="post-Java Web学习笔记（三）——Session和Cookie" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Session 与 Cookie" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header"> 
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/21/Java%20Web%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94Session%E5%92%8CCookie/">Java Web学习笔记（三）——Session和Cookie</a>
+      <a class="article-title" href="/2020/03/21/Session%20%E4%B8%8E%20Cookie/">Session 与 Cookie</a>
     </h1>
   
 
         
-        <a href="/2020/03/21/Java%20Web%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94Session%E5%92%8CCookie/" class="archive-article-date">
+        <a href="/2020/03/21/Session%20%E4%B8%8E%20Cookie/" class="archive-article-date">
   	<time datetime="2020-03-21T02:05:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-21</time>
 </a>
         
@@ -891,7 +874,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="会话技术"><a href="#会话技术" class="headerlink" title="会话技术"></a>会话技术</h2><p>会话技术：HTTP是<strong>无状态协议</strong>，这意味着每次客户端发出请求时，服务器不会记录下先前客户端请求的任何信息，即服务器⽆法识别每⼀次 HTTP 请求的出处（不知道来⾃于哪个终端）。
+        <p>Session 和 Cookie 是 Web 开发中的两个重要概念，是会话技术的两种实现方式。</p>
         
       
 
@@ -919,7 +902,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/21/Java%20Web%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94Session%E5%92%8CCookie/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/03/21/Session%20%E4%B8%8E%20Cookie/">展开全文 >></a>
         </p>
       
 
@@ -1083,6 +1066,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">AOP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
             
             <div class="clearfix"></div>
