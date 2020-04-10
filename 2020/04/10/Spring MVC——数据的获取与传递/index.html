@@ -6,15 +6,37 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: EL表达式 | Epxs的个人博客</title>
+  <title>Spring MVC——数据的获取与传递 | Epxs的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Epxs的个人博客">
-<meta property="og:url" content="http://yoursite.com/tags/EL%E8%A1%A8%E8%BE%BE%E5%BC%8F/index.html">
+  <meta name="description" content="接收请求的输入和传递模型数据是 Spring MVC 的一大重要功能，是数据在前后端进行传递的重要保障。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring MVC——数据的获取与传递">
+<meta property="og:url" content="http://yoursite.com/2020/04/10/Spring%20MVC%E2%80%94%E2%80%94%E6%95%B0%E6%8D%AE%E7%9A%84%E8%8E%B7%E5%8F%96%E4%B8%8E%E4%BC%A0%E9%80%92/index.html">
 <meta property="og:site_name" content="Epxs的个人博客">
+<meta property="og:description" content="接收请求的输入和传递模型数据是 Spring MVC 的一大重要功能，是数据在前后端进行传递的重要保障。">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200410171052220.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200410171237686.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200410181258920.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200410181358715.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200410184321850.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200410184412874.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200410184541798.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200410184610494.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200410182444575.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200410182501688.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2020041019380253.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200410193920168.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200410203429448.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200410203856285.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200410204922955.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2020041021045538.png">
+<meta property="article:published_time" content="2020-04-10T13:11:30.000Z">
+<meta property="article:modified_time" content="2020-04-10T13:12:55.596Z">
 <meta property="article:author" content="Epxs">
+<meta property="article:tag" content="Spring MVC">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200410171052220.png">
   
     <link rel="alternative" href="/atom.xml" title="Epxs的个人博客" type="application/atom+xml">
   
@@ -149,64 +171,269 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Spring MVC——数据的获取与传递" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/25/Java%20Web%20%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%E2%80%94%E2%80%94EL%20%E8%A1%A8%E8%BE%BE%E5%BC%8F%E4%B8%8E%20JSTL/" class="archive-article-date">
-  	<time datetime="2020-03-25T06:03:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-25</time>
-</a>
-        </div>
-    	 
+      <header class="article-header"> 
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/25/Java%20Web%20%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%E2%80%94%E2%80%94EL%20%E8%A1%A8%E8%BE%BE%E5%BC%8F%E4%B8%8E%20JSTL/">Java Web的基本操作——EL表达式与JSTL</a>
+    <h1 class="article-title" itemprop="name">
+      Spring MVC——数据的获取与传递
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2020/04/10/Spring%20MVC%E2%80%94%E2%80%94%E6%95%B0%E6%8D%AE%E7%9A%84%E8%8E%B7%E5%8F%96%E4%B8%8E%E4%BC%A0%E9%80%92/" class="archive-article-date">
+  	<time datetime="2020-04-10T13:11:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-10</time>
+</a>
+        
+      </header>
+     
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>接收请求的输入和传递模型数据是 Spring MVC 的一大重要功能，是数据在前后端进行传递的重要保障。</p>
+<a id="more"></a>
+<h2 id="RequestMapping-注解"><a href="#RequestMapping-注解" class="headerlink" title="@RequestMapping 注解"></a>@RequestMapping 注解</h2><p>@RequestMapping 注解用于将请求映射到方法上，该请求也可以与类绑定。当控制器在类级别上添加 @RequestMapping 注解时，该注解会应用到控制器的所有处理器方法上。</p>
+<p>该注解包含以下属性：</p>
+<ul>
+<li>value：指定所要处理的请求路径。当参数中只定义 value 时，可不声明。例如：@RequestMapping(“/“) 和 @RequestMapping(value =”/“) 是等价的。</li>
+<li>method：指定请求类型。</li>
+<li>params：指定请求中必须包含哪些参数。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.epxs.controller;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Controller;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMethod;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Controller</span>   <span class="comment">//声明该类为一个控制器</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/hello"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyHandler</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 通过<span class="doctag">@RequestMapping</span>注解，对请求做了如下要求：</span></span><br><span class="line"><span class="comment">     * 1 url：/hello/sayhello</span></span><br><span class="line"><span class="comment">     * 2 类型必须是 get</span></span><br><span class="line"><span class="comment">     * 3 必须包含参数a和参数b，且a==3。</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@RequestMapping</span>(value = <span class="string">"/sayhello"</span>, method = RequestMethod.GET,params = &#123;<span class="string">"a=3"</span>,<span class="string">"b"</span>&#125;)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">sayHello</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"index"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>测试结果：</p>
+<p><img src="https://img-blog.csdnimg.cn/20200410171052220.png" alt="测试结果"></p>
+<p>如参数不符合要求，则报错：</p>
+<p><img src="https://img-blog.csdnimg.cn/20200410171237686.png" alt="错误信息"></p>
+<h2 id="数据的获取"><a href="#数据的获取" class="headerlink" title="数据的获取"></a>数据的获取</h2><p>对于上面的程序，浏览器仅仅是向 MyHandler 发送了一个带有参数的请求，但这些参数并没有被业务方法接收，如要接收传来的参数，只需给方法定义形参即可。</p>
+<h3 id="获取普通数据"><a href="#获取普通数据" class="headerlink" title="获取普通数据"></a>获取普通数据</h3><p>1 获取请求中的 name 和 id。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.epxs.controller;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Controller;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMethod;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestParam;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Controller</span>   <span class="comment">//声明该类为一个控制器</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/hello"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyHandler</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@RequestMapping</span>(value = <span class="string">"/sayhello"</span>, method = RequestMethod.GET)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">sayHello</span><span class="params">(String name, Integer age)</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"name:"</span>+name);</span><br><span class="line">        System.out.println(<span class="string">"age:"</span>+age);</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"index"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>sayhello 方法定义了两个形参，当接受到请求中的 name 和 age 时，Spring MVC 会自动的将 name 和 age 与 sayhello 方法的两个形参映射起来，这里要求形参名和参数名一致。</p>
+<p>因为请求中的参数都是 String 类型，Spring MVC 也会自动进行类型转换，如 String -&gt; int ，或 String -&gt; double 等，这些都可以由 Spring MVC 自动完成。</p>
+<p>浏览器发送请求：</p>
+<p><img src="https://img-blog.csdnimg.cn/20200410181258920.png" alt="浏览器发送请求"></p>
+<p>测试结果：</p>
+<p><img src="https://img-blog.csdnimg.cn/20200410181358715.png" alt="测试结果"></p>
+<p>2 对参数进行设定。</p>
+<p>如果形参名和传来的参数名不一致，或者需要形参进行相关设置，可通过 @RequestParam 注解。有以下属性：</p>
+<ul>
+<li>value：将请求中的参数和当前形参映射起来，值为参数名。</li>
+<li>defaultValue：默认值，当没有接收到这个参数时，为形参设定一个默认值。</li>
+<li>required：设定参数是否为必填参数。</li>
+</ul>
+<p>这里将 name 和 username ，age 和 userage 映射起来，并为其设定了默认值。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestMapping</span>(value = <span class="string">"/sayhello"</span>, method = RequestMethod.GET)</span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">sayHello</span><span class="params">(@RequestParam(value = <span class="string">"name"</span>,required = <span class="keyword">false</span>,defaultValue = <span class="string">"Jerry"</span>)</span> String username, @<span class="title">RequestParam</span><span class="params">(value = <span class="string">"age"</span>,required = <span class="keyword">false</span>,defaultValue = <span class="string">"20"</span>)</span> Integer userage)</span>&#123;</span><br><span class="line">     System.out.println(<span class="string">"name:"</span>+username);</span><br><span class="line">     System.out.println(<span class="string">"age:"</span>+userage);</span><br><span class="line">     <span class="keyword">return</span> <span class="string">"index"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>当没有传入参数时，输出默认值。</p>
+<p><img src="https://img-blog.csdnimg.cn/20200410184321850.png" alt="未传入参数"></p>
+<p><img src="https://img-blog.csdnimg.cn/20200410184412874.png" alt="测试结果"></p>
+<p>当传入 name 和 age 后，输出 name 和 age 。</p>
+<p><img src="https://img-blog.csdnimg.cn/20200410184541798.png" alt="传入参数"></p>
+<p><img src="https://img-blog.csdnimg.cn/20200410184610494.png" alt="测试结果"><br>3 接收 REST 格式的请求。</p>
+<p>请求也可以形如 /hello/sayhello/Tom/18 的格式，只需对 @RequestMapping 的 value 值进行修改，并给形参添加 @PathVariable 注解。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestMapping</span>(value = <span class="string">"/sayhello/&#123;name&#125;/&#123;age&#125;"</span>, method = RequestMethod.GET)</span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">sayHello</span><span class="params">(@PathVariable(<span class="string">"name"</span>)</span> String name, @<span class="title">PathVariable</span><span class="params">(<span class="string">"age"</span>)</span> Integer age)</span>&#123;</span><br><span class="line">     System.out.println(<span class="string">"name:"</span>+name);</span><br><span class="line">     System.out.println(<span class="string">"age:"</span>+age);</span><br><span class="line">     <span class="keyword">return</span> <span class="string">"index"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>测试结果：</p>
+<p><img src="https://img-blog.csdnimg.cn/20200410182444575.png" alt="测试结果"></p>
+<p><img src="https://img-blog.csdnimg.cn/20200410182501688.png" alt="测试结果"></p>
+<h3 id="获取-Java-对象"><a href="#获取-Java-对象" class="headerlink" title="获取 Java 对象"></a>获取 Java 对象</h3><p>控制器方法不仅可以接收普通类型的数据，还可以接收 Java 对象，当形参定义为一个 Java 对象时，Spring MVC 会进行自动封装。</p>
+<p>1  创建一个 User 类，User 中包含一个 Email 对象。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.epxs.entity;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> lombok.Data;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String username;</span><br><span class="line">    <span class="keyword">private</span> String password;</span><br><span class="line">    <span class="keyword">private</span> Email email;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.epxs.entity;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> lombok.Data;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Email</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String value;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>2 创建表单，模拟用户注册，编写一个 register.jsp 。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">%@</span> <span class="attr">page</span> <span class="attr">contentType</span>=<span class="string">"text/html;charset=UTF-8"</span> <span class="attr">language</span>=<span class="string">"java"</span> %&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Title<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">form</span> <span class="attr">method</span>=<span class="string">"post"</span> <span class="attr">action</span>=<span class="string">"/user/register"</span>&gt;</span></span><br><span class="line">        用户名：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"username"</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">        密码：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">name</span>=<span class="string">"password"</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">        邮箱：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"email.value"</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"提交"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>3 编写控制器方法，该方法接收一个 user 对象。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.epxs.controller;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.epxs.entity.User;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Controller;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMethod;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Controller</span>   <span class="comment">//声明该类为一个控制器</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/user"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyHandler</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@RequestMapping</span>(value = <span class="string">"/register"</span>,method = RequestMethod.POST)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">register</span><span class="params">(User user)</span></span>&#123;</span><br><span class="line">        System.out.println(user);</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"index"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Spring MVC 框架能将请求中传来的参数自动封装到形参的 Java 对象中（参数名必须和属性名相对应），且可以进行对象间的级联操作。</p>
+<p>测试结果：</p>
+<p><img src="https://img-blog.csdnimg.cn/2020041019380253.png" alt="输入表单"></p>
+<p>输出：</p>
+<p><img src="https://img-blog.csdnimg.cn/20200410193920168.png" alt="测试结果"></p>
+<h2 id="传递模型数据到视图"><a href="#传递模型数据到视图" class="headerlink" title="传递模型数据到视图"></a>传递模型数据到视图</h2><p>仅仅接收前端传来的数据还不够，Spring MVC 的一项重要工作将模型数据传递到视图中，即由控制器获取获取模型数据，再由 JSP 页面进行数据展示。</p>
+<p>控制器会将获取到的模型数据绑定到 JSP 域对象中。</p>
+<p>SpringMVC提供了以下几种方式添加模型数据：</p>
+<ul>
+<li>Map</li>
+<li>Model</li>
+<li>ModelAndView</li>
+<li>@ModelAttribute</li>
+</ul>
+<h3 id="1-Map"><a href="#1-Map" class="headerlink" title="1 Map"></a>1 Map</h3><p>Spring MVC 在内部使用 Model 接口存储模型数据，在调用业务方法前会创建一个隐含对象作为模型数据的存储容器。只需要在业务方法中定义 Map 类型的形参，方法体中便可通过对 map 的操作来完成模型数据的添加。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.epxs.controller;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.epxs.entity.Student;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Controller;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/test"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyHandler</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@RequestMapping</span>(value = <span class="string">"/map"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">map</span><span class="params">(Map&lt;String, Student&gt; map)</span></span>&#123;</span><br><span class="line">        Student student = <span class="keyword">new</span> Student(<span class="number">1</span>,<span class="string">"Tom"</span>,<span class="number">18</span>);</span><br><span class="line">        map.put(<span class="string">"student"</span>,student);<span class="comment">//向 map 中添加 student</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">"index"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在 JSP 页面，通过 EL 表达式取出。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">%@</span> <span class="attr">page</span> <span class="attr">contentType</span>=<span class="string">"text/html;charset=UTF-8"</span> <span class="attr">language</span>=<span class="string">"java"</span> %&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">%@</span> <span class="attr">page</span> <span class="attr">isELIgnored</span>=<span class="string">"false"</span> %&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Title<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    $&#123;requestScope.student&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>测试结果：</p>
+<p><img src="https://img-blog.csdnimg.cn/20200410203429448.png" alt="测试结果"></p>
+<h3 id="2-Model"><a href="#2-Model" class="headerlink" title="2 Model"></a>2 Model</h3><p>Model 与 Map 类似，将方法的形参定义 Model 类型。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/model"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">model</span><span class="params">(Model model)</span></span>&#123;</span><br><span class="line">    Student student = <span class="keyword">new</span> Student(<span class="number">1</span>,<span class="string">"Tom"</span>,<span class="number">18</span>);</span><br><span class="line">    model.addAttribute(<span class="string">"student"</span>,student);</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"index"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>测试结果：</p>
+<p><img src="https://img-blog.csdnimg.cn/20200410203856285.png" alt="测试结果"></p>
+<h3 id="3-ModelAndView"><a href="#3-ModelAndView" class="headerlink" title="3 ModelAndView"></a>3 ModelAndView</h3><p>与Map或者Model不同的是，ModelAndView 不但包含模型数据，同时也包含了视图信息，所以使用 ModelAndView 来处理模型数据，业务方法的返回值必须是 ModelAndView。</p>
+<p>业务方法中对 ModelAndView 进行两个操作：</p>
+<ul>
+<li>填充模型数据。</li>
+<li>绑定视图信息。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"modelAndView"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> ModelAndView <span class="title">modelAndView</span><span class="params">()</span></span>&#123;</span><br><span class="line">    Student student = <span class="keyword">new</span> Student(<span class="number">1</span>,<span class="string">"Tom"</span>,<span class="number">18</span>);</span><br><span class="line">    Map&lt;String,Student&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">    map.put(<span class="string">"student"</span>,student);<span class="comment">//填充模型数据</span></span><br><span class="line">    <span class="comment">//第一个参数为视图名称，第二个参数为模型数据</span></span><br><span class="line">    ModelAndView modelAndView = <span class="keyword">new</span> ModelAndView(<span class="string">"index"</span>,map);</span><br><span class="line">    <span class="keyword">return</span> modelAndView;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>测试结果：</p>
+<p><img src="https://img-blog.csdnimg.cn/20200410204922955.png" alt="测试结果"></p>
+<h3 id="4-ModelAttribute-注解"><a href="#4-ModelAttribute-注解" class="headerlink" title="4 @ModelAttribute 注解"></a>4 @ModelAttribute 注解</h3><p>Spring MVC 还可以通过 @ModelAttribute 注解的方式添加模型数据。添加了 @ModelAttribute 注解的方法，会在调用任何一个业务方法之前被自动调用。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ModelAttribute</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">modelAttribute</span><span class="params">(Model model)</span></span>&#123;</span><br><span class="line">    Student student = <span class="keyword">new</span> Student(<span class="number">1</span>,<span class="string">"Tom"</span>,<span class="number">18</span>);</span><br><span class="line">    model.addAttribute(<span class="string">"student"</span>,student);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/modelAttribute"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">modelAttribute</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"index"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>测试结果：</p>
+<p><img src="https://img-blog.csdnimg.cn/2020041021045538.png" alt="测试结果"></p>
+<p>上述几种传递模型数据的方法，都是将数据存储到请求 request 中，所以在 JSP 页面取数据时，也应到 requesScope 中去取。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">EL表达式</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">JSTL标签库</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Spring MVC</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/04/10/Spring%20MVC%E2%80%94%E2%80%94%E6%95%B0%E6%8D%AE%E7%9A%84%E8%8E%B7%E5%8F%96%E4%B8%8E%E4%BC%A0%E9%80%92/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2020/04/09/SpringMVC%E2%80%94%E2%80%94%E7%AC%AC%E4%B8%80%E4%B8%AA%20Demo/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Spring MVC——第一个 Demo</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -229,9 +456,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
