@@ -6,15 +6,26 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: Session | Epxs的个人博客</title>
+  <title>Mybatis(4)——动态SQL | Epxs的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Epxs的个人博客">
-<meta property="og:url" content="http://yoursite.com/tags/Session/index.html">
+  <meta name="description" content="支持动态 SQL 是 Mybatis 的强大特性，动态即可以 SQL 语句可以根据条件的不同而改变，大大提高了 SQL 语句的灵活性。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mybatis(4)——动态SQL">
+<meta property="og:url" content="http://yoursite.com/2020/04/27/Mybatis%EF%BC%884%EF%BC%89%E2%80%94%E2%80%94%E5%8A%A8%E6%80%81SQL/index.html">
 <meta property="og:site_name" content="Epxs的个人博客">
+<meta property="og:description" content="支持动态 SQL 是 Mybatis 的强大特性，动态即可以 SQL 语句可以根据条件的不同而改变，大大提高了 SQL 语句的灵活性。">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200427195508904.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200427195815180.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200427201618237.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200427203528283.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200427204500694.png">
+<meta property="article:published_time" content="2020-04-27T11:14:23.000Z">
+<meta property="article:modified_time" content="2020-04-27T12:51:05.785Z">
 <meta property="article:author" content="Epxs">
+<meta property="article:tag" content="Mybatis">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200427195508904.png">
   
     <link rel="alternative" href="/atom.xml" title="Epxs的个人博客" type="application/atom+xml">
   
@@ -149,64 +160,248 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Mybatis（4）——动态SQL" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/21/Java%20Web%E2%80%94%E2%80%94Session%20%E4%B8%8E%20Cookie/" class="archive-article-date">
-  	<time datetime="2020-03-21T02:05:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-21</time>
-</a>
-        </div>
-    	 
+      <header class="article-header"> 
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/21/Java%20Web%E2%80%94%E2%80%94Session%20%E4%B8%8E%20Cookie/">Java Web——Session 与 Cookie</a>
+    <h1 class="article-title" itemprop="name">
+      Mybatis(4)——动态SQL
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2020/04/27/Mybatis%EF%BC%884%EF%BC%89%E2%80%94%E2%80%94%E5%8A%A8%E6%80%81SQL/" class="archive-article-date">
+  	<time datetime="2020-04-27T11:14:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-27</time>
+</a>
+        
+      </header>
+     
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>支持动态 SQL 是 Mybatis 的强大特性，动态即可以 SQL 语句可以根据条件的不同而改变，大大提高了 SQL 语句的灵活性。</p>
+<a id="more"></a>
+<h2 id="动态-SQL"><a href="#动态-SQL" class="headerlink" title="动态 SQL"></a>动态 SQL</h2><p>动态 SQL 是 Mybatis 的强大特性之一。可以帮助我们根据不同条件拼接 SQL 语句，实现对 SQL 的灵活操作。Mybatis 通过表达式进行判断，对 SQL 进行灵活拼接、组装。</p>
+<p>主要通过以下标签：</p>
+<ul>
+<li>if</li>
+<li>where</li>
+<li>choose（when，otherwise）</li>
+<li>set</li>
+<li>foreach</li>
+</ul>
+<h2 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h2><p>进行测试之前，先搭建好环境。</p>
+<p>1 创建一张数据表 user，并插入几条数据。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> <span class="keyword">user</span>(</span><br><span class="line">    <span class="keyword">id</span> <span class="built_in">int</span> primary <span class="keyword">key</span>,</span><br><span class="line">    <span class="keyword">name</span> <span class="built_in">varchar</span>(<span class="number">15</span>),</span><br><span class="line">    <span class="keyword">password</span> <span class="built_in">varchar</span>(<span class="number">10</span>),</span><br><span class="line">    age <span class="built_in">int</span>(<span class="number">2</span>)</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> <span class="keyword">user</span>(<span class="keyword">id</span>, <span class="keyword">name</span>, <span class="keyword">password</span>, age) <span class="keyword">VALUE</span> (<span class="number">1</span>,<span class="string">'张三'</span>,<span class="string">'123456'</span>,<span class="number">15</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> <span class="keyword">user</span>(<span class="keyword">id</span>, <span class="keyword">name</span>, <span class="keyword">password</span>, age) <span class="keyword">VALUE</span> (<span class="number">2</span>,<span class="string">'李四'</span>,<span class="string">'765432'</span>,<span class="number">16</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> <span class="keyword">user</span>(<span class="keyword">id</span>, <span class="keyword">name</span>, <span class="keyword">password</span>, age) <span class="keyword">VALUE</span> (<span class="number">3</span>,<span class="string">'小明'</span>,<span class="string">'666444'</span>,<span class="number">17</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> <span class="keyword">user</span>(<span class="keyword">id</span>, <span class="keyword">name</span>, <span class="keyword">password</span>, age) <span class="keyword">VALUE</span> (<span class="number">4</span>,<span class="string">'小明'</span>,<span class="string">'456456'</span>,<span class="number">18</span>);</span><br></pre></td></tr></table></figure>
+
+<p>2 编写实体类 User。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.epxs.entity;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> lombok.AllArgsConstructor;</span><br><span class="line"><span class="keyword">import</span> lombok.Data;</span><br><span class="line"><span class="keyword">import</span> lombok.NoArgsConstructor;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="meta">@AllArgsConstructor</span></span><br><span class="line"><span class="meta">@NoArgsConstructor</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Integer id;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> String password;</span><br><span class="line">    <span class="keyword">private</span> Integer age;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>3 为方便后期测试，将获取 sqlSession 对象的步骤封装进工具类。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.epxs.utils;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.apache.ibatis.io.Resources;</span><br><span class="line"><span class="keyword">import</span> org.apache.ibatis.session.SqlSession;</span><br><span class="line"><span class="keyword">import</span> org.apache.ibatis.session.SqlSessionFactory;</span><br><span class="line"><span class="keyword">import</span> org.apache.ibatis.session.SqlSessionFactoryBuilder;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.InputStream;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyBatisUtils</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> SqlSessionFactory sqlSessionFactory;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            String resource = <span class="string">"mybatis-config.xml"</span>;</span><br><span class="line">            InputStream inputStream = <span class="keyword">null</span>;</span><br><span class="line">            inputStream = Resources.getResourceAsStream(resource);</span><br><span class="line">            <span class="comment">//读取配置文件，获取 SqlSessionFactory 对象</span></span><br><span class="line">            sqlSessionFactory = <span class="keyword">new</span> SqlSessionFactoryBuilder().build(inputStream);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> SqlSession <span class="title">getSqlSession</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> sqlSessionFactory.openSession(<span class="keyword">true</span>);<span class="comment">//开启自动提交事物</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="if"><a href="#if" class="headerlink" title="if"></a>if</h2><p>if 标签用作条件判断，当条件满足时，将标签中的内容拼接到 sql 语句中。</p>
+<p>例如，根据 name 和 age 来查询 user ，当传入的 age 为空时，只根据 name 查询。</p>
+<p>这里的 user 表中有两条 name 为“小明”的记录，当根据只根据 name 查询时，会查出两个 user，所以可以在后面追加一个判断 age 的条件，来对“小明”精准定位。</p>
+<p>1 编写 mapper 接口。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.epxs.dao;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.epxs.entity.User;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">UserMapper</span> </span>&#123;</span><br><span class="line">    <span class="comment">//这里传入一个 map 集合作为参数，Mybatis 获取参数时，也会到 map 中去取，取出健的值作为结果。</span></span><br><span class="line">    <span class="function">List&lt;User&gt; <span class="title">findUser1</span><span class="params">(Map map)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>2 编写 mapper 映射文件 UserMapper.xml。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">mapper</span> <span class="meta-keyword">PUBLIC</span> <span class="meta-string">"-//mybatis.org//DTD Config 3.0//EN"</span></span></span><br><span class="line"><span class="meta">        <span class="meta-string">"http://mybatis.org/dtd/mybatis-3-mapper.dtd"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mapper</span> <span class="attr">namespace</span>=<span class="string">"com.epxs.dao.UserMapper"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"findUser"</span> <span class="attr">resultType</span>=<span class="string">"user"</span> <span class="attr">parameterType</span>=<span class="string">"map"</span>&gt;</span></span><br><span class="line">        select * from user where</span><br><span class="line">        <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">"name!=null"</span>&gt;</span></span><br><span class="line">            name = #&#123;name&#125;</span><br><span class="line">        <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">"age!=null"</span>&gt;</span></span><br><span class="line">            and age = #&#123;age&#125;</span><br><span class="line">        <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mapper</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>3 测试方法。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">findUser1</span><span class="params">()</span></span>&#123;</span><br><span class="line">    SqlSession sqlSession = MyBatisUtils.getSqlSession();</span><br><span class="line">    UserMapper mapper = sqlSession.getMapper(UserMapper<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">    Map&lt;String,Object&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">    map.put(<span class="string">"name"</span>,<span class="string">"小明"</span>);</span><br><span class="line">    <span class="comment">//map.put("age",18);</span></span><br><span class="line">    <span class="keyword">for</span> (User user : mapper.findUser1(map)) &#123;</span><br><span class="line">        System.out.println(user);</span><br><span class="line">    &#125;</span><br><span class="line">    sqlSession.close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>测试结果：</p>
+<p><img src="https://img-blog.csdnimg.cn/20200427195508904.png" alt="测试结果"></p>
+<p>当加上条件“ age = 18 ”时，只查出一个“小明”。</p>
+<p><img src="https://img-blog.csdnimg.cn/20200427195815180.png" alt="测试结果"></p>
+<h2 id="where"><a href="#where" class="headerlink" title="where"></a>where</h2><p>对于上述语句，如果只希望根据 age 进行查询，传入 name 的值等于 null ，那么这条 SQL 语句就变这样：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">user</span> <span class="keyword">where</span> <span class="keyword">and</span> age = <span class="comment">#&#123;age&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>where 之后直接连接了一个 and ，明显是错误的。Mybatis 提供了一个 where 标签，where 标签只会在子标签有返回内容的情况下才插入 “where” 子句。而且，若子句的开头为 “AND” 或 “OR”，where 也会将它们去除。</p>
+<p>修改上面的 SQL。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"findUser1"</span> <span class="attr">resultType</span>=<span class="string">"user"</span> <span class="attr">parameterType</span>=<span class="string">"map"</span>&gt;</span></span><br><span class="line">    select * from user</span><br><span class="line">    <span class="tag">&lt;<span class="name">where</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">"name!=null"</span>&gt;</span></span><br><span class="line">            name = #&#123;name&#125;</span><br><span class="line">        <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">"age!=null"</span>&gt;</span></span><br><span class="line">            and age = #&#123;age&#125;</span><br><span class="line">        <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">where</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>这样无论怎样传值，都能保证 SQL 语句的正确性。</p>
+<h2 id="choose"><a href="#choose" class="headerlink" title="choose"></a>choose</h2><p>有时候，我们不想用到所有的查询条件，只想选择其中的一个，查询条件有一个满足即可，使用 choose 标签可以解决此类问题，choose 标签的处理流程类似于 Java 的 switch 语句。</p>
+<p>1 在 UserMapper 中添加一个方法，这个方法可以根据 user 的任意一个属性进行查询，同样传入一个 map作为参数。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">List&lt;User&gt; <span class="title">findUser2</span><span class="params">(Map map)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>2 编写该方法的 SQL 映射。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"findUser2"</span> <span class="attr">parameterType</span>=<span class="string">"map"</span> <span class="attr">resultType</span>=<span class="string">"user"</span>&gt;</span></span><br><span class="line">    select * from user</span><br><span class="line">    <span class="tag">&lt;<span class="name">where</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">choose</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">when</span> <span class="attr">test</span>=<span class="string">"id!=null"</span>&gt;</span></span><br><span class="line">               id=#&#123;id&#125;</span><br><span class="line">            <span class="tag">&lt;/<span class="name">when</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">when</span> <span class="attr">test</span>=<span class="string">"name!=null"</span>&gt;</span></span><br><span class="line">               and name =#&#123;name&#125;</span><br><span class="line">            <span class="tag">&lt;/<span class="name">when</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">when</span> <span class="attr">test</span>=<span class="string">"password!=null"</span>&gt;</span></span><br><span class="line">               and password =#&#123;password&#125;</span><br><span class="line">            <span class="tag">&lt;/<span class="name">when</span>&gt;</span></span><br><span class="line">           <span class="tag">&lt;<span class="name">otherwise</span>&gt;</span></span><br><span class="line">               and age=#&#123;age&#125;</span><br><span class="line">           <span class="tag">&lt;/<span class="name">otherwise</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">choose</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">where</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>3 测试方法。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">findUser2</span><span class="params">()</span></span>&#123;</span><br><span class="line">    SqlSession sqlSession = MyBatisUtils.getSqlSession();</span><br><span class="line">    UserMapper mapper = sqlSession.getMapper(UserMapper<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">    Map&lt;String,Object&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">    map.put(<span class="string">"name"</span>,<span class="string">"小明"</span>);</span><br><span class="line">    <span class="keyword">for</span> (User user : mapper.findUser2(map)) &#123;</span><br><span class="line">        System.out.println(user);</span><br><span class="line">    &#125;</span><br><span class="line">    sqlSession.close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>测试结果：</p>
+<p><img src="https://img-blog.csdnimg.cn/20200427201618237.png" alt="测试结果"></p>
+<h2 id="set"><a href="#set" class="headerlink" title="set"></a>set</h2><p>set 用于动态更新操作，set 元素可以用于动态包含需要更新的列，忽略其它不更新的列。</p>
+<p>1 编写接口方法。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">updateUser</span><span class="params">(User user)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>2 编写 SQL 映射。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">update</span> <span class="attr">id</span>=<span class="string">"updateUser"</span> <span class="attr">parameterType</span>=<span class="string">"user"</span>&gt;</span></span><br><span class="line">    update user</span><br><span class="line">    <span class="tag">&lt;<span class="name">set</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">"name!=null"</span>&gt;</span></span><br><span class="line">            name=#&#123;name&#125;,</span><br><span class="line">        <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">"password!=null"</span>&gt;</span></span><br><span class="line">            password=#&#123;password&#125;,</span><br><span class="line">        <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">"age!=null"</span>&gt;</span></span><br><span class="line">            age=#&#123;age&#125;</span><br><span class="line">        <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">set</span>&gt;</span></span><br><span class="line">    where id=#&#123;id&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">update</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>3 测试方法。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">updateUser</span><span class="params">()</span></span>&#123;</span><br><span class="line">    SqlSession sqlSession = MyBatisUtils.getSqlSession();</span><br><span class="line">    UserMapper mapper = sqlSession.getMapper(UserMapper<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">    Map&lt;String,Object&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">    map.put(<span class="string">"id"</span>,<span class="number">1</span>);</span><br><span class="line">    map.put(<span class="string">"name"</span>,<span class="string">"张小红"</span>);</span><br><span class="line">    mapper.updateUser(map);</span><br><span class="line">    sqlSession.close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>测试结果：</p>
+<p><img src="https://img-blog.csdnimg.cn/20200427203528283.png" alt="测试结果"></p>
+<h2 id="foreach"><a href="#foreach" class="headerlink" title="foreach"></a>foreach</h2><p>foreach 用于遍历集合，一般用于构建 in 语句。</p>
+<p>1 编写接口方法。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">List&lt;User&gt; <span class="title">findUserInId</span><span class="params">(@Param(<span class="string">"ids"</span>)</span> List ids)</span>;</span><br><span class="line"><span class="comment">//@Param 用于绑定参数，传入一个集合，构建 sql 语句是，对这个集合进行遍历。</span></span><br></pre></td></tr></table></figure>
+
+<p>2 编写 SQL 映射。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment"> collection:指定输入对象中的集合属性</span></span><br><span class="line"><span class="comment"> item:每次遍历生成的对象</span></span><br><span class="line"><span class="comment"> open:开始遍历时的拼接字符串</span></span><br><span class="line"><span class="comment"> close:结束时拼接的字符串</span></span><br><span class="line"><span class="comment"> separator:遍历对象之间需要拼接的字符串</span></span><br><span class="line"><span class="comment"> 拼接后的语句：select * from user where id in(?,?...)</span></span><br><span class="line"><span class="comment"> --&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"findUserInId"</span> <span class="attr">resultType</span>=<span class="string">"user"</span> <span class="attr">parameterType</span>=<span class="string">"list"</span>&gt;</span></span><br><span class="line">    select * from user where</span><br><span class="line">    <span class="tag">&lt;<span class="name">foreach</span> <span class="attr">collection</span>=<span class="string">"ids"</span> <span class="attr">item</span>=<span class="string">"id"</span> <span class="attr">open</span>=<span class="string">"id in("</span> <span class="attr">close</span>=<span class="string">")"</span> <span class="attr">separator</span>=<span class="string">","</span>&gt;</span></span><br><span class="line">        #&#123;id&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">foreach</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>3 测试方法。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">findUserInId</span><span class="params">()</span></span>&#123;</span><br><span class="line">    SqlSession sqlSession = MyBatisUtils.getSqlSession();</span><br><span class="line">    UserMapper mapper = sqlSession.getMapper(UserMapper<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">    List&lt;Integer&gt; ids = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    ids.add(<span class="number">1</span>);</span><br><span class="line">    ids.add(<span class="number">2</span>);</span><br><span class="line">    <span class="keyword">for</span> (User user : mapper.findUserInId(ids)) &#123;</span><br><span class="line">        System.out.println(user);</span><br><span class="line">    &#125;</span><br><span class="line">    sqlSession.close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>测试结果：</p>
+<p><img src="https://img-blog.csdnimg.cn/20200427204500694.png" alt="测试结果"></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Session</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Cookie</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Mybatis</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/04/27/Mybatis%EF%BC%884%EF%BC%89%E2%80%94%E2%80%94%E5%8A%A8%E6%80%81SQL/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2020/04/25/Mybatis%EF%BC%883%EF%BC%89%E2%80%94%E2%80%94%E7%BB%93%E6%9E%9C%E6%98%A0%E5%B0%84/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Mybatis(3)——结果映射</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -229,9 +424,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
