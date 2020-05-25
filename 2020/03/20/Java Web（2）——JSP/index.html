@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="JSP," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="JSP 是 JavaWeb 服务器端的动态资源,它与 html 页面的作用是相同的，用于显示数据和获取数据。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java Web(2)——JSP">
+<meta property="og:url" content="http://yoursite.com/2020/03/20/Java%20Web%EF%BC%882%EF%BC%89%E2%80%94%E2%80%94JSP/index.html">
+<meta property="og:site_name" content="Epxs的个人博客">
+<meta property="og:description" content="JSP 是 JavaWeb 服务器端的动态资源,它与 html 页面的作用是相同的，用于显示数据和获取数据。">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200319154737945.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2020031821095015.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200318211619145.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200318213619108.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2020031917133888.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200319173441726.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200319175947242.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2020031918061827.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200321130615595.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200321130629746.png">
+<meta property="article:published_time" content="2020-03-20T08:23:10.000Z">
+<meta property="article:modified_time" content="2020-05-25T05:27:51.426Z">
+<meta property="article:author" content="Epxs">
+<meta property="article:tag" content="JSP">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200319154737945.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/03/20/Java Web（2）——JSP/"/>
+
+
+
+
+
+  <title>Java Web(2)——JSP | Epxs的个人博客</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Epxs的个人博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Let's Start</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/20/Java%20Web%EF%BC%882%EF%BC%89%E2%80%94%E2%80%94JSP/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Epxs">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Epxs的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Java Web(2)——JSP</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-20T16:23:10+08:00">
+                2020-03-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java-Web/" itemprop="url" rel="index">
+                    <span itemprop="name">Java Web</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>JSP 是 JavaWeb 服务器端的动态资源,它与 html 页面的作用是相同的，用于显示数据和获取数据。</p>
+<a id="more"></a>
+<h2 id="JSP-概述"><a href="#JSP-概述" class="headerlink" title="JSP 概述"></a>JSP 概述</h2><p>JSP 全称 Java Server Pages ，是一种动态网页开发技术。JSP 的本质是一种 Servlet，主要用于实现 Java web 应用程序的用户界面部分，并将最终的界⾯呈现给⽤户。</p>
+<p>单纯的从代码的角度来看，JSP 文件实际上是一个注入了 Java 代码的 HTML 文件，是 HTML+CSS+JS+Java 的混合文件。</p>
+<h2 id="JSP工作原理"><a href="#JSP工作原理" class="headerlink" title="JSP工作原理"></a>JSP工作原理</h2><p>JSP 处理网页的步骤：</p>
+<p><img src="https://img-blog.csdnimg.cn/20200319154737945.png" alt="JSP图解"></p>
+<p>以下步骤表明了 Web 服务器是如何使用 JSP 来创建网页的：</p>
+<ul>
+<li>就像其他普通的网页一样，浏览器发送一个 HTTP 请求给服务器。</li>
+<li>Web 服务器识别出这是一个对 JSP 网页的请求，并且将该请求传递给 JSP 引擎。通过使用 URL 或者 .jsp 文件来完成。</li>
+<li>JSP 引擎从磁盘中载入 JSP 文件，然后将它们转化为 Servlet。这种转化只是简单地将所有模板文本改用 println() 语句，并且将所有的 JSP 元素转化成 Java 代码。</li>
+<li>JSP 引擎将 Servlet 编译成可执行类，并且将原始请求传递给 Servlet 引擎。</li>
+<li>Web 服务器的某组件将会调用 Servlet 引擎，然后载入并执行 Servlet 类。在执行过程中，Servlet 产生 HTML 格式的输出并将其内嵌于 HTTP response 中上交给 Web 服务器。</li>
+<li>Web 服务器以静态 HTML 网页的形式将 HTTP response 返回到您的浏览器中。</li>
+<li>最终，Web 浏览器处理 HTTP response 中动态产生的HTML网页，就好像在处理静态网页一样。</li>
+</ul>
+<h2 id="Java-嵌入的三种方式"><a href="#Java-嵌入的三种方式" class="headerlink" title="Java 嵌入的三种方式"></a>Java 嵌入的三种方式</h2><p>1 JSP 脚本：可以包含任意量的Java语句、变量、方法或表达式，用于执行Java的逻辑代码。</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;%</span><br><span class="line">  Java代码</span><br><span class="line">%&gt;</span><br></pre></td></tr></table></figure>
+
+<p>2 JSP 声明：可以声明一个或多个变量、方法，供后面的Java代码使用。</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;%!</span><br><span class="line">  声明Java方法等</span><br><span class="line">%&gt;</span><br></pre></td></tr></table></figure>
+
+<p>3 JSP 表达式：把 Java 对象直接输出到 HTML ⻚⾯中。</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%=  Java变量   %&gt;</span><br></pre></td></tr></table></figure>
+
+<p>例1：在 index.jsp 文件中声明了一个 hello 方法，接收其返回值，并输出到 HTML 页面。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">    &lt;title&gt;Hello&lt;/title&gt;</span><br><span class="line">  &lt;/head&gt;</span><br><span class="line">  &lt;body&gt;</span><br><span class="line">    &lt;h1&gt;</span><br><span class="line">      Hello World!</span><br><span class="line">    &lt;/h1&gt;</span><br><span class="line">    &lt;%!</span><br><span class="line">      <span class="function"><span class="keyword">public</span> String <span class="title">hello</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"Hello JSP!"</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    %&gt;</span><br><span class="line"></span><br><span class="line">    &lt;%</span><br><span class="line">      String str=hello();</span><br><span class="line">    %&gt;</span><br><span class="line"></span><br><span class="line">    &lt;%=str%&gt;</span><br><span class="line">  &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<p>启动 Tomcat，访问 index.jsp。</p>
+<p><img src="https://img-blog.csdnimg.cn/2020031821095015.png" alt="测试结果"></p>
+<p>查看该页面的源代码。</p>
+<p><img src="https://img-blog.csdnimg.cn/20200318211619145.png" alt="网页源代码"></p>
+<p>例2：创建一个 UserList 集合，并以表格的形式展示到页面中。</p>
+<p>1 创建一个 User 类。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.epxs.test;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> Integer age;</span><br><span class="line">    <span class="comment">//Setter and Getter...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>2 创建 User 集合，并以表格形式输出。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">    &lt;title&gt;Hello&lt;/title&gt;</span><br><span class="line">  &lt;/head&gt;</span><br><span class="line">  &lt;body&gt;</span><br><span class="line">    &lt;h1&gt;</span><br><span class="line">      Hello World!</span><br><span class="line">    &lt;/h1&gt;</span><br><span class="line">    &lt;%</span><br><span class="line">      List&lt;User&gt; users=<span class="keyword">new</span> ArrayList&lt;&gt;()<span class="comment">//定义集合，并向集合中添加几条数据</span></span><br><span class="line">      users.add(<span class="keyword">new</span> User(<span class="string">"Tom"</span>,<span class="number">18</span>));</span><br><span class="line">      users.add(<span class="keyword">new</span> User(<span class="string">"Jack"</span>,<span class="number">22</span>));</span><br><span class="line">      users.add(<span class="keyword">new</span> User(<span class="string">"Lucy"</span>,<span class="number">19</span>));</span><br><span class="line">    %&gt;</span><br><span class="line">    &lt;table&gt;</span><br><span class="line">      &lt;tr&gt;</span><br><span class="line">        &lt;th&gt;姓名&lt;/th&gt;</span><br><span class="line">        &lt;th&gt;年龄&lt;/th&gt;</span><br><span class="line">      &lt;/tr&gt;</span><br><span class="line">      &lt;%</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;users.size();i++)&#123;</span><br><span class="line">      %&gt;</span><br><span class="line">          &lt;tr&gt;</span><br><span class="line">            &lt;td&gt;&lt;%=users.get(i).getName()%&gt;&lt;/td&gt;</span><br><span class="line">            &lt;td&gt;&lt;%=users.get(i).getAge()%&gt;&lt;/td&gt;</span><br><span class="line">          &lt;/tr&gt;</span><br><span class="line">      &lt;%</span><br><span class="line">        &#125;</span><br><span class="line">      %&gt;</span><br><span class="line">    &lt;/table&gt;</span><br><span class="line">  &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<p>测试结果：</p>
+<p><img src="https://img-blog.csdnimg.cn/20200318213619108.png" alt="测试结果"></p>
+<h2 id="JSP-内置对象"><a href="#JSP-内置对象" class="headerlink" title="JSP 内置对象"></a>JSP 内置对象</h2><p>JSP 内置对象是指 JSP 容器为每个页面提供的 Java 对象，我们可以直接使用它们而不需要显式声明。JSP 共有九大内置对象，分别是：</p>
+<ul>
+<li>request：HttpServletRequest 类的实例，表示一次请求。</li>
+<li>response：HttpServletResponse 类的实例，表示一次响应。</li>
+<li>out：JspWriter 类的实例，用来写入内容，向浏览器输出数据。</li>
+<li>pageContext：PageContext 类的实例，用来代表整个 JSP 页面。</li>
+<li>session：表示⼀次会话，保存⽤户信息，HttpSession 的实例。</li>
+<li>application：ServletContext 的实例，表示当前 Web 应⽤，全局对象，保存所有⽤户共享信息。</li>
+<li>config：当前 JSP 对应的 Servlet 的 ServletConfig 对象，获取当前 Servlet 的信息，允许开发者访问 Servlet 或者 JSP 引擎的初始化参数。</li>
+<li>page：当前 JSP 对应的 Servlet 对象， page 对象就是this对象的同义词。</li>
+<li>exception：Exception 类的对象，代表发生错误的 JSP 页面中对应的异常对象。</li>
+</ul>
+<h2 id="HTTP-状态码"><a href="#HTTP-状态码" class="headerlink" title="HTTP 状态码"></a>HTTP 状态码</h2><p>当浏览者访问一个网页时，浏览者的浏览器会向网页所在服务器发出请求。当浏览器接收并显示网页前，此网页所在的服务器会返回一个包含HTTP状态码的信息头（server header）用以响应浏览器的请求。常见的状态码及其表示的信息：</p>
+<ul>
+<li>200：OK，表示正常，请求成功。</li>
+<li>400：表示客户端请求的语法错误，服务器无法匹配。</li>
+<li>404：Not Found，服务器无法根据客户端的请求找到资源（网页）。</li>
+<li>500：服务器内部错误，无法完成请求，或程序抛出了异常。</li>
+</ul>
+<h2 id="request-对象常用方法"><a href="#request-对象常用方法" class="headerlink" title="request 对象常用方法"></a>request 对象常用方法</h2><p>1 getParameter(String key)：该方法用于获取客户端传来的参数。</p>
+<p>示例：将 id=1 的参数传给 jsp ，jsp 文件调用 requset 对象的 getParameter 方法取出 id 的值，并在页面中输出。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">    &lt;title&gt;Hello&lt;/title&gt;</span><br><span class="line">  &lt;/head&gt;</span><br><span class="line">  &lt;body&gt;</span><br><span class="line">    &lt;%</span><br><span class="line">      String Value = request.getParameter(<span class="string">"id"</span>);</span><br><span class="line">    %&gt;</span><br><span class="line">    &lt;%=Value%&gt;</span><br><span class="line">  &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<p>通过 “?name=value” 的形式向 URL 中传递参数。</p>
+<p><img src="https://img-blog.csdnimg.cn/2020031917133888.png" alt="测试结果"></p>
+<p>2 setAttribute(String key,Object value) （通过键值对的形式保存数据）&amp; getAttribute(String key)（通过 key 取出数据）。set 与 get 相互对应，可实现对数据的存与取。</p>
+<p>示例：先调用 setAttribute 存入 name=”Jack”，再通过 getAtrribute 方法取出，并输出到页面中。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">    &lt;title&gt;Hello&lt;/title&gt;</span><br><span class="line">  &lt;/head&gt;</span><br><span class="line">  &lt;body&gt;</span><br><span class="line">    &lt;%</span><br><span class="line">      request.setAttribute(<span class="string">"name"</span>,<span class="string">"Jack"</span>);</span><br><span class="line">      String value = (String) request.getAttribute(<span class="string">"name"</span>);</span><br><span class="line">    %&gt;</span><br><span class="line">    &lt;%=value%&gt;</span><br><span class="line">  &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<p>测试结果：</p>
+<p><img src="https://img-blog.csdnimg.cn/20200319173441726.png" alt="测试结果"></p>
+<p>3 getRequestDispatcher(String path) 返回⼀个 RequestDispatcher对象，该对象的 forward 方法实现请求转发，用于 jsp 文件之间传递请求。</p>
+<p>示例：index.jsp 首先拿到浏览器端传来的参数 id，对 value 的值进行了 ++ 操作后，将 id 存入 request。再将 request 转发到 index1.jsp。</p>
+<p>index.jsp。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">    &lt;title&gt;title&lt;/title&gt;</span><br><span class="line">  &lt;/head&gt;</span><br><span class="line">  &lt;body&gt;</span><br><span class="line">    &lt;h1&gt;index&lt;/h1&gt;</span><br><span class="line">    &lt;%</span><br><span class="line">      String idStr = request.getParameter(<span class="string">"id"</span>);    <span class="comment">//取出String类型的id</span></span><br><span class="line">      Integer value = Integer.parseInt(idStr);      <span class="comment">//转型</span></span><br><span class="line">      value++;</span><br><span class="line">      request.setAttribute(<span class="string">"id"</span>,value);</span><br><span class="line">      request.getRequestDispatcher(<span class="string">"index1.jsp"</span>).forward(request,response);   <span class="comment">//请求转发到index1.jsp</span></span><br><span class="line">    %&gt;</span><br><span class="line">  &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<p>index1.jsp</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;title&gt;Title&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;h1&gt;index1&lt;/h1&gt;</span><br><span class="line">    &lt;%</span><br><span class="line">        Integer value = (Integer) request.getAttribute(<span class="string">"id"</span>);</span><br><span class="line">    %&gt;</span><br><span class="line">    &lt;%=value%&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<p>测试结果：</p>
+<p><img src="https://img-blog.csdnimg.cn/20200319175947242.png" alt="测试结果"></p>
+<p>从这个例子可以看出，两个 jsp 文件共用了一个 request ，且调用 getRequestDispatcher 方法后，浏览器的地址栏没有发生改变，改变的只是页面内容。</p>
+<p>4 getParameterValues() 获取客户端传来的多个同名参数，且返回一个 String 类型的数组。</p>
+<p>示例：接受多个参数的值。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">    &lt;title&gt;title&lt;/title&gt;</span><br><span class="line">  &lt;/head&gt;</span><br><span class="line">  &lt;body&gt;</span><br><span class="line">    &lt;%</span><br><span class="line">      String[] values = request.getParameterValues(<span class="string">"name"</span>);</span><br><span class="line">    %&gt;</span><br><span class="line">    &lt;%=Arrays.toString(values)%&gt;</span><br><span class="line">  &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<p>测试结果：</p>
+<p><img src="https://img-blog.csdnimg.cn/2020031918061827.png" alt="测试结果"></p>
+<p>6 setCharacterEncoding(String charset) 用于指定每个请求的编码，能用于解决中文乱码，在 getParameter() 前调用。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">request.setCharacterEncoding(<span class="string">"UTF-8"</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="JSP-页面重定向"><a href="#JSP-页面重定向" class="headerlink" title="JSP 页面重定向"></a>JSP 页面重定向</h2><p>转发请求先用 request 对象的 getRequestDispatcher() 方法获取一个 requestDispatchar 对象，再调用该对象的 forward() 方法。当需要将文档移动到一个新的位置时，就需要使用 JSP 重定向了。最简单的重定向方式就是使用 response 对象的 sendRedirect() 方法。重定向意味客户端向服务器发送一个新的请求。</p>
+<p>请求转发和重定向主要有以下几点区别：</p>
+<ul>
+<li>转发是将同一个请求传给下一个JSP页面，重定向是向下一个页面发送一个新的请求。</li>
+<li>转发是同一个请求再服务器端进行传递，浏览器的地址栏不会发生改变，也叫服务器跳转。</li>
+<li>重定向由客户端发送⼀次新的请求来访问跳转后的⽬标资源，浏览器的地址栏发生改变，也叫客户端跳转。</li>
+<li>如果两个页面之间需要通过 request 来传值，则必须使⽤转发，不能使⽤重定向。</li>
+</ul>
+<p>示例：创建一个用户登录页面，当用户输入正确时，利用请求转发方式跳转到欢迎页面，当输入错误时，利用重定向方式重新回到登陆页面。实现代码如下：</p>
+<p>login.jsp</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;title&gt;Title&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;form action=<span class="string">"/check.jsp"</span> method=<span class="string">"post"</span>&gt;</span><br><span class="line">        用户名：&lt;input type=<span class="string">"text"</span> name=<span class="string">"username"</span>&gt;&lt;br&gt;</span><br><span class="line">        密码：&lt;input type=<span class="string">"password"</span> name=<span class="string">"password"</span>&gt;&lt;br&gt;</span><br><span class="line">        &lt;input type=<span class="string">"submit"</span> value=<span class="string">"登陆"</span>&gt;</span><br><span class="line">    &lt;/form&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<p>check.jsp</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;title&gt;Title&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;%</span><br><span class="line">        String username = request.getParameter(<span class="string">"username"</span>);</span><br><span class="line">        String password = request.getParameter(<span class="string">"password"</span>);</span><br><span class="line">        <span class="keyword">if</span>(username.equals(<span class="string">"abc"</span>)&amp;&amp;password.equals(<span class="string">"123"</span>))&#123;</span><br><span class="line">            <span class="comment">//登陆成功</span></span><br><span class="line">            request.setAttribute(<span class="string">"name"</span>,username);</span><br><span class="line">            request.getRequestDispatcher(<span class="string">"welcome.jsp"</span>).forward(request,response);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="comment">//登陆失败</span></span><br><span class="line">            response.sendRedirect(<span class="string">"login.jsp"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    %&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<p>welcome.jsp</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;title&gt;Title&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;%</span><br><span class="line">        String name = (String) request.getAttribute(<span class="string">"name"</span>);</span><br><span class="line">    %&gt;</span><br><span class="line">    欢迎 &lt;%=name%&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<p>测试结果：</p>
+<p><img src="https://img-blog.csdnimg.cn/20200321130615595.png" alt="测试结果"></p>
+<p>登陆成功：</p>
+<p><img src="https://img-blog.csdnimg.cn/20200321130629746.png" alt="测试结果"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JSP/" rel="tag"># JSP</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/03/18/Java%20Web%EF%BC%881%EF%BC%89%E2%80%94%E2%80%94Servlet/" rel="next" title="Java Web(1)——Servlet">
+                <i class="fa fa-chevron-left"></i> Java Web(1)——Servlet
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/03/21/Java%20Web%EF%BC%883%EF%BC%89%E2%80%94%E2%80%94Session%20%E4%B8%8E%20Cookie/" rel="prev" title="Java Web(3)——Session 与 Cookie">
+                Java Web(3)——Session 与 Cookie <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="Epxs" />
+            
+              <p class="site-author-name" itemprop="name">Epxs</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/yourname" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/u/6285525298" target="_blank" title="微博">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>微博</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#JSP-概述"><span class="nav-number">1.</span> <span class="nav-text">JSP 概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JSP工作原理"><span class="nav-number">2.</span> <span class="nav-text">JSP工作原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java-嵌入的三种方式"><span class="nav-number">3.</span> <span class="nav-text">Java 嵌入的三种方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JSP-内置对象"><span class="nav-number">4.</span> <span class="nav-text">JSP 内置对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP-状态码"><span class="nav-number">5.</span> <span class="nav-text">HTTP 状态码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#request-对象常用方法"><span class="nav-number">6.</span> <span class="nav-text">request 对象常用方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JSP-页面重定向"><span class="nav-number">7.</span> <span class="nav-text">JSP 页面重定向</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Epxs</span>
+
+  
+</div>
+
+<!--
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+-->
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
